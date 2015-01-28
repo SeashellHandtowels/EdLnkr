@@ -12,8 +12,10 @@
         <span>{{plan.title}}</span>
         <br/>
         <span>{{plan.synopsis}}</span>
+        {{plan.links}}
         <li ng-repeat="link in plan.links">
-          {{ link }}
+          {{ link.url }}
+          {{ link.description }}
         </li>
 
       </li>
