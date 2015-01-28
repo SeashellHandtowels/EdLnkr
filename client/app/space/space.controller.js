@@ -34,10 +34,10 @@ angular.module('edLnkrApp')
 
       $http.post('/api/plans', plan)
       .success(function(data, status, headers, config) {
-        console.log("Plan created successfully: " + data);
+        console.log('Plan created successfully: ' + data);
       })
       .error(function(data, status, headers, config) {
-        console.log("There was an error when creating the plan: " + data);
+        console.log('There was an error when creating the plan: " + data);
       });
     };
 
