@@ -79,7 +79,6 @@ describe('Plan Model', function() {
           console.log(err);
           return done(err);
         }
-        console.dir(res.body);
         res.body.title.should.equal(plan.title);
         done();
       });
