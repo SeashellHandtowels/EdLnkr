@@ -1,17 +1,29 @@
 'use strict';
 
 angular.module('edLnkrApp')
+<<<<<<< HEAD
   .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', function ($scope, $http, $rootScope, $state) {
+=======
+  .controller('SpaceCtrl', function ($scope, $http, $rootScope, $location) {
+>>>>>>> Fix waffle issue #8
     $scope.message = 'This is the space view.';
     $scope.plans = [];
+    $scope.planLinks = [];
     $scope.link = {};
     $scope.planLinks = [];
-    
     $http.get('/api/plans').success(function(plans) {
       $scope.plans = plans;
     });
 
     $scope.addAnotherLink = function(){
+<<<<<<< HEAD
+      var link = {
+        url: $scope.link.url,
+        description: $scope.link.description
+      };
+      $scope.planLinks.push(link);
+      $scope.link = {};
+=======
       if ($scope.link.url){
         var link = {
           url: $scope.link.url,
@@ -20,6 +32,7 @@ angular.module('edLnkrApp')
         $scope.planLinks.push(link);
         $scope.link = {};
       }
+>>>>>>> Fix waffle issue #8
     };
 
     $scope.addPlan = function() {
@@ -28,8 +41,11 @@ angular.module('edLnkrApp')
         return;
       }
 
+<<<<<<< HEAD
+=======
       $scope.addAnotherLink();
       
+>>>>>>> Fix waffle issue #8
       var plan = {
         title: $scope.title,
         user: $rootScope.user._id,
@@ -40,7 +56,11 @@ angular.module('edLnkrApp')
       $http.post('/api/plans', plan)
       .success(function(data) {
         console.log('Plan created successfully: ' + data);
+<<<<<<< HEAD
         $state.go('space');
+=======
+        $location.path('/space');
+>>>>>>> Fix waffle issue #8
       })
       .error(function(data) {
         console.log('There was an error when creating the plan: ' + data);
