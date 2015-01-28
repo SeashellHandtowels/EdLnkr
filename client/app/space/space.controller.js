@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('SpaceCtrl', function ($scope, $http, $rootScope) {
+  .controller('SpaceCtrl', function ($scope, $http, $rootScope, $state) {
     $scope.message = 'This is the space view.';
     $scope.plans = [];
+    $scope.planLinks = [];
     $scope.link = {};
 
     $http.get('/api/plans').success(function(plans) {
@@ -11,7 +12,6 @@ angular.module('edLnkrApp')
     });
 
     $scope.addAnotherLink = function(){
-      $scope.planLinks = $scope.planLinks || [];
       var link = {
         url: $scope.link.url,
         description: $scope.link.description
@@ -25,6 +25,7 @@ angular.module('edLnkrApp')
       if($scope.title === undefined) {
         return;
       }
+
       var plan = {
         title: $scope.title,
         user: $rootScope.user._id,
@@ -35,6 +36,7 @@ angular.module('edLnkrApp')
       $http.post('/api/plans', plan)
       .success(function(data) {
         console.log('Plan created successfully: ' + data);
+        $state.go('space');
       })
       .error(function(data) {
         console.log('There was an error when creating the plan: ' + data);

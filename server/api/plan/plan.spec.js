@@ -68,14 +68,22 @@ describe('Plan Model', function() {
 
   describe("POST /api/plans", function() {
 
-    // it('should save a plan', function(done){
-    //   plan.save(function(){
-    //     Plan.find({}, function(err, plans){
-    //       plans.should.have.length(1);
-    //       done();
-    //     });        
-    //   });
-    // });
+    it('should save a plan', function(done) {
+      request(app)
+      .post('/api/plans')
+      .send(plan)
+      .expect(201)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) {
+          console.log(err);
+          return done(err);
+        }
+        console.dir(res.body);
+        res.body.title.should.equal(plan.title);
+        done();
+      });
+    });
 
     it('should fail when saving a duplicate plan', function(done) {
       plan.save(function() {
@@ -83,7 +91,6 @@ describe('Plan Model', function() {
         planDup.save(function(err) {
           Plan.find({}, function(err, plans){
             plans.should.have.length(1);
-            // done();
           });  
           should.exist(err);
           done();

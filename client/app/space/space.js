@@ -9,13 +9,12 @@ angular.module('edLnkrApp')
         controller: 'SpaceCtrl',
         authenticate: true
       })
-    .state('create', {
-      url: '/space/create',
-      templateUrl: 'app/space/space_create.html',
-      controller: 'SpaceCtrl',
-      authenticate: true
-    });
-
+      .state('create', {
+        url: '/create',
+        templateUrl: 'app/space/create.html',
+        controller: 'SpaceCtrl',
+        authenticate: true
+      });
   });
 
 
