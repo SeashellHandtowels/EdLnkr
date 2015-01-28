@@ -1,5 +1,4 @@
 /**
- * Using Rails-like standard naming convention for endpoints.
  * GET     /things              ->  index
  * POST    /things              ->  create
  * GET     /things/:id          ->  show
@@ -10,53 +9,53 @@
 'use strict';
 
 var _ = require('lodash');
-var Thing = require('./thing.model');
+var Plan = require('./plan.model');
 
-// Get list of things
+// Get list of plans
 exports.index = function(req, res) {
-  Thing.find(function (err, things) {
+  Plan.find(function (err, plans) {
     if(err) { return handleError(res, err); }
-    return res.json(200, things);
+    return res.json(200, plans);
   });
 };
 
-// Get a single thing
+// Get a single plan
 exports.show = function(req, res) {
-  Thing.findById(req.params.id, function (err, thing) {
+  Plan.findById(req.params.id, function (err, plan) {
     if(err) { return handleError(res, err); }
-    if(!thing) { return res.send(404); }
-    return res.json(thing);
+    if(!plan) { return res.send(404); }
+    return res.json(plan);
   });
 };
 
-// Creates a new thing in the DB.
+// Creates a new plan in the DB.
 exports.create = function(req, res) {
-  Thing.create(req.body, function(err, thing) {
+  Plan.create(req.body, function(err, plan) {
     if(err) { return handleError(res, err); }
-    return res.json(201, thing);
+    return res.json(201, plan);
   });
 };
 
-// Updates an existing thing in the DB.
+// Updates an existing plan in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  Thing.findById(req.params.id, function (err, thing) {
+  Plan.findById(req.params.id, function (err, plan) {
     if (err) { return handleError(res, err); }
-    if(!thing) { return res.send(404); }
-    var updated = _.merge(thing, req.body);
+    if(!plan) { return res.send(404); }
+    var updated = _.merge(plan, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.json(200, thing);
+      return res.json(200, plan);
     });
   });
 };
 
-// Deletes a thing from the DB.
+// Deletes a plan from the DB.
 exports.destroy = function(req, res) {
-  Thing.findById(req.params.id, function (err, thing) {
+  Plan.findById(req.params.id, function (err, plan) {
     if(err) { return handleError(res, err); }
-    if(!thing) { return res.send(404); }
-    thing.remove(function(err) {
+    if(!plan) { return res.send(404); }
+    plan.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });

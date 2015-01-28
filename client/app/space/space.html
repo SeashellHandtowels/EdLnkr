@@ -1,3 +1,16 @@
-<div class="col-md-12">
-This is the space view.
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="col-md-12">
+    {{ message }}
+    <ul class="plans">     
+      <a ui-sref="create"><p>Create a new plan!</p></a>
+
+      <li ng-repeat="plan in plans">
+        <span>{{plan.title}}</span>
+        <br/>
+        <span>{{plan.synopsis}}</span>
+      </li>
+
+    </ul>
+  </div> 
 </div>
