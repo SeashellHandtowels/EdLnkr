@@ -1,43 +1,15 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-
   <div class="col-md-12">
     {{ message }}
-    <ul class="plans">
-      <div ng-if="plans.length === 0;">
-        
-        <a ui-sref="create"><p>Create a new plan!</p></a>
-      </div>
+    <ul class="plans">     
+      <a ui-sref="create"><p>Create a new plan!</p></a>
+
       <li ng-repeat="plan in plans">
         <span>{{plan.title}}</span>
         <br/>
         <span>{{plan.synopsis}}</span>
-<!--         <li ng-repeat="link in plan.links">
-          {{ link }}
-        </li> -->
-
       </li>
 
     </ul>
   </div> 
-
-<!--     <ul class="plans unstyled">
-      <li data-ng-repeat="plan in plans">
-        <span>{{plan.created | date:'medium'}}</span> /
-        <span>{{plan.user.name}}</span>
-        <h2>
-          <a data-ng-href="#!/plans/{{plan._id}}">{{plan.title}}</a>
-          <span data-ng-if="hasAuthorization(plan)">
-            <a class="btn" href="/#!/plans/{{plan._id}}/edit">
-              <i class="glyphicon glyphicon-edit"></i>
-            </a>
-            <a class="btn" data-ng-click="remove(plan);">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
-          </span>
-        </h2>
-        <div>{{plan.content}}</div>
-      </li>
-    </ul> -->
-
-

@@ -20,7 +20,7 @@ angular.module('edLnkrApp')
       $scope.link = {};
     };
 
-    $scope.addPlan = function(form) {
+    $scope.addPlan = function() {
       $scope.submitted = true;
       if($scope.title === undefined) {
         return;
@@ -33,10 +33,10 @@ angular.module('edLnkrApp')
       };
 
       $http.post('/api/plans', plan)
-      .success(function(data, status, headers, config) {
+      .success(function(data) {
         console.log('Plan created successfully: ' + data);
       })
-      .error(function(data, status, headers, config) {
+      .error(function(data) {
         console.log('There was an error when creating the plan: ' + data);
       });
     };
