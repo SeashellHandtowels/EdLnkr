@@ -37,7 +37,7 @@ angular.module('edLnkrApp')
         console.log('Plan created successfully: ' + data);
       })
       .error(function(data, status, headers, config) {
-        console.log('There was an error when creating the plan: " + data);
+        console.log('There was an error when creating the plan: ' + data);
       });
     };
 
