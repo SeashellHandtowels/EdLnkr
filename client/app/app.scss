@@ -1,8 +1,11 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
+@import '../assets/css/bootstrap.min.css';
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+@import '../assets/css/styles.css';
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
 
 /**
  * App-wide Styles
