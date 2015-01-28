@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('SpaceCtrl', function ($scope, $http, $rootScope, $state) {
+  .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', function ($scope, $http, $rootScope, $state) {
     $scope.message = 'This is the space view.';
     $scope.plans = [];
     $scope.planLinks = [];
@@ -46,4 +46,4 @@ angular.module('edLnkrApp')
     $scope.removePlan = function(plan) {
       $http.delete('/api/plans/' + plan._id);
     };
-  });
+  }]);
