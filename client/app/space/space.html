@@ -12,10 +12,10 @@
         <span>{{plan.title}}</span>
         <br/>
         <span>{{plan.synopsis}}</span>
-        {{plan.links}}
-        <li ng-repeat="link in plan.links">
-          {{ link.url }}
-          {{ link.description }}
+        <!-- {{plan.links}} -->
+        <li ng-repeat="l in plan.links">
+          {{ l.url }}
+          {{ l.description }}
         </li>
 
       </li>
