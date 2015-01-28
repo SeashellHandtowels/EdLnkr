@@ -2,3 +2,20 @@
   margin: 0 auto;
   width: 600px;
 }
+
+.plan {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+}
+
+.edit-buttons {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  color: #39b0cd;
+  font-size: 125%;
+}

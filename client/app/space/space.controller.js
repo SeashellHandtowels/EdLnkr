@@ -49,5 +49,6 @@ angular.module('edLnkrApp')
 
     $scope.removePlan = function(plan) {
       $http.delete('/api/plans/' + plan._id);
+      $state.go($state.current, {}, {reload: true}); 
     };
   }]);
