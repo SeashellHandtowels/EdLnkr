@@ -4,7 +4,6 @@ angular.module('edLnkrApp')
   .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', function ($scope, $http, $rootScope, $state) {
     $scope.message = 'This is the space view.';
     $scope.plans = [];
-    $scope.planLinks = [];
     $scope.link = {};
 
     $http.get('/api/plans').success(function(plans) {
@@ -12,12 +11,14 @@ angular.module('edLnkrApp')
     });
 
     $scope.addAnotherLink = function(){
-      var link = {
-        url: $scope.link.url,
-        description: $scope.link.description
-      };
-      $scope.planLinks.push(link);
-      $scope.link = {};
+      if ($scope.link.url){
+        var link = {
+          url: $scope.link.url,
+          description: $scope.link.description
+        };
+        $scope.planLinks.push(link);
+        $scope.link = {};
+      }
     };
 
     $scope.addPlan = function() {
@@ -26,6 +27,8 @@ angular.module('edLnkrApp')
         return;
       }
 
+      $scope.addAnotherLink();
+      
       var plan = {
         title: $scope.title,
         user: $rootScope.user._id,
