@@ -5,6 +5,7 @@ angular.module('edLnkrApp')
     var currentUser = {};
     if($cookieStore.get('token')) {
       currentUser = User.get();
+      $rootScope.user = currentUser;
     }
 
     return {

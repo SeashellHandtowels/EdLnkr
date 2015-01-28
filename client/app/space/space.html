@@ -4,10 +4,10 @@
   <div class="col-md-12">
     {{ message }}
     <ul class="plans">
-      <div ng-if="plans.length === 0;">
+     <!--  <div ng-if="plans.length === 0;"> -->
         
         <a ui-sref="create"><p>Create a new plan!</p></a>
-      </div>
+      <!-- </div> -->
       <li ng-repeat="plan in plans">
         <span>{{plan.title}}</span>
         <br/>
