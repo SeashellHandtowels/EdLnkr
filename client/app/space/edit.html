@@ -1,0 +1,60 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+<p>Ur in space/Edit</p>
+  {{plan}}
+  <form class="form" name="form" ng-submit="submitEditPlan(form)" novalidate>
+
+    <div class="form-group">
+      <label>Plan Title</label>
+  
+      <input type="text" name="title" class="form-control" ng-model="plan.title" required>
+    </div>
+
+    <div class="form-group">
+      <label>Synopsis</label>
+
+      <input type="text" name="synopsis" class="form-control" ng-model="plan.synopsis" required>
+
+    </div> 
+
+     <div class="form-group">
+      <label>Add Links</label>
+      <div>
+        <ul>
+          <li ng-repeat="l in plan.links">
+            <span>{{l.url}}</span>
+            <span>{{l.description}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-group">
+      <label></label>
+      <input type="url" placeholder="Link url" name="url" class="form-control" ng-model="link.url">
+    </div>
+
+    <div class="form-group">
+      <label></label>
+      <input type="text" placeholder="Description" name="description" class="form-control" ng-model="link.description">
+    </div>
+    <label></label>
+    <input class="btn btn-small btn-default" ng-click="addAnotherLink()" value="Add another link" />
+
+    <div class="form-group has-error">
+      <p class="help-block" ng-show="form.title.$error.required && submitted">
+         Please enter a title.
+      </p>
+
+      <p class="help-block">{{ errors.other }}</p>
+    </div>
+
+    <div>
+      <button class="btn btn-inverse btn-lg btn-login" type="submit">
+        Update Plan
+      </button>
+
+    </div>
+
+
+  </form>
+</div>

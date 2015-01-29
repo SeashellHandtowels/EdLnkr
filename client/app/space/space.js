@@ -14,6 +14,12 @@ angular.module('edLnkrApp')
         templateUrl: 'app/space/create.html',
         controller: 'SpaceCtrl',
         authenticate: true
+      })
+      .state('edit', {
+        url: '/edit',
+        templateUrl: 'app/space/edit.html',
+        controller: 'SpaceCtrl',
+        authenticate: true
       });
   });
 
