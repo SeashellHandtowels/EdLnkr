@@ -51,7 +51,7 @@ angular.module('edLnkrApp')
       $state.go('edit');
     };
 
-    $scope.editLinkUrl = function(link, plan){
+    $scope.editLinkUrl = function(link){
       $scope.link = link;
     };
 
@@ -75,7 +75,7 @@ angular.module('edLnkrApp')
       $scope.link = {};
     };
 
-    $scope.removeLink = function(link, plan) {
+    $scope.removeLink = function(link) {
       var _id = link._id;
       var links = $rootScope.plan.links;
       for (var i = 0, l = links.length; i < l; i += 1) {
@@ -87,7 +87,7 @@ angular.module('edLnkrApp')
       $state.go($state.current, {}, {reload: true}); 
     };
 
-    $scope.submitEditPlan = function(form) {
+    $scope.submitEditPlan = function() {
 
       $scope.submitted = true;
       if($rootScope.plan.title === undefined) {
