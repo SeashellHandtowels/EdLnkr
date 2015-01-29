@@ -52,6 +52,46 @@ angular.module('edLnkrApp')
       $state.go('edit');
     };
 
+    $scope.editLinkUrl = function(link, plan){
+      $scope.link = link;
+    };
+
+    $scope.addAnotherLinkInEdit = function(){
+      // get link._id
+      // loop over plan.links to match id.
+      // if found, replace plan.links[i] with link
+      // else plan.links.push(link);
+      var l = $scope.link
+      var _id = l._id;
+      var links = $rootScope.plan.links;
+      var found = false;
+      if ($scope.link.url){
+        for (var i = 0, le = links.length; i < le; i += 1) {
+          if (links[i]._id === _id) {
+            links[i].url = l.url;
+            links[i].description = l.description;
+            found = true;
+          }
+        }
+        if (!found) {
+          links.push(l);
+        }
+      }
+      $scope.link = {};
+    };
+
+    $scope.removeLink = function(link, plan) {
+      var _id = link._id;
+      var links = $rootScope.plan.links;
+      for (var i = 0, l = links.length; i < l; i += 1) {
+        if (links[i]._id === _id) {
+          links.splice(i, 1);
+          break;
+        }
+      }
+      $state.go($state.current, {}, {reload: true}); 
+    };
+
     $scope.submitEditPlan = function(form) {
       console.log("in submitEditPlan");
       $scope.submitted = true;
@@ -59,15 +99,15 @@ angular.module('edLnkrApp')
         return;
       }
 
-      $scope.addAnotherLink();
+      $scope.addAnotherLinkInEdit();
       
       var plan = {
         title: $rootScope.plan.title,
         user: $rootScope.user._id,
         synopsis: $rootScope.plan.synopsis,
-        links: $rootScope.plan.planLinks
+        links: $rootScope.plan.links
       };
-
+      console.log(plan);
       $http.put('/api/plans/' + $rootScope.plan._id, plan)
       .success(function(data) {
         console.log('Plan updated successfully: ' + data);

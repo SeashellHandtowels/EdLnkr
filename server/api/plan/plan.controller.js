@@ -10,6 +10,7 @@
 
 var _ = require('lodash');
 var Plan = require('./plan.model');
+var util = require('util');
 
 // Get list of plans
 exports.index = function(req, res) {
@@ -42,7 +43,9 @@ exports.update = function(req, res) {
   Plan.findById(req.params.id, function (err, plan) {
     if (err) { return handleError(res, err); }
     if(!plan) { return res.send(404); }
+    var tempLinks = req.body.links;
     var updated = _.merge(plan, req.body);
+    updated.links = tempLinks;
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, plan);

@@ -23,7 +23,7 @@
         <ul>
           <li ng-repeat="l in plan.links" class="links">
             <div class="edit-buttons">
-              <a class="glyphicon glyphicon-edit" ng-click="editLinkUrl()"></a>  
+              <a class="glyphicon glyphicon-edit" ng-click="editLinkUrl(l, plan)"></a>  
               <a class="glyphicon glyphicon-trash" ng-click="removeLink(l, plan)"></a>
             </div>
             <span>{{l.url}}</span><br>
@@ -32,6 +32,8 @@
         </ul>
       </div>
     </div>
+    
+    
     <div class="form-group">
       <label>Link url</label>
       <input type="url" placeholder="Link url" name="url" class="form-control" ng-model="link.url">
@@ -41,8 +43,11 @@
       <label>Description</label>
       <input type="text" placeholder="Description" name="description" class="form-control" ng-model="link.description">
     </div>
+
+
+
     <label></label>
-    <input class="btn btn-small btn-default" ng-click="addAnotherLinkinEdit()" value="Add another link" />
+    <input class="btn btn-small btn-default" ng-click="addAnotherLinkInEdit()" value="Edit/Add another link" />
 
     <div class="form-group has-error">
       <p class="help-block" ng-show="form.title.$error.required && submitted">
