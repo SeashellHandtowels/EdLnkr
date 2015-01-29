@@ -1,14 +1,14 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
   <div class="col-md-12">
-    {{ message }}
+
     <ul class="plans">     
-      <a ui-sref="create"><p>Create a new plan!</p></a>
+      <a ui-sref="create"><button class="btn btn-info">Create a new plan!</button></a>
 
       <li ng-repeat="plan in plans" class="plan">
         <span>{{plan.title}}</span>
         <div class="edit-buttons">
-          <a class="glyphicon glyphicon-edit"></a> 
+          <a class="glyphicon glyphicon-edit" ng-click="editPlan(plan)"></a> 
           <a class="glyphicon glyphicon-trash" ng-click="removePlan(plan)"></a>
         </div>
         <br/>
