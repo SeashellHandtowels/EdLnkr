@@ -1,3 +1,13 @@
 <div class="col-md-12">
-This is the showplan view.
+  <div class="flexy-flex">
+    <div class="plan-head">
+      <h1>Plan: {{plan.title}}</h1>
+      <div class="synopsis">{{plan.synopsis+":"}}</div>
+      <ul>
+        <li ng-repeat="link in plan.links">
+          <a href="{{link.url}}">{{link.description}}</a>
+        </li>
+      </ul>      
+    </div>
+  </div>
 </div>
