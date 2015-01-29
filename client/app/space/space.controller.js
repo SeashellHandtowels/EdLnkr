@@ -2,7 +2,6 @@
 
 angular.module('edLnkrApp')
   .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', function ($scope, $http, $rootScope, $state) {
-    $scope.message = 'This is the space view.';
     $scope.plans = [];
     $scope.link = {};
     $scope.planLinks = [];
@@ -57,11 +56,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.addAnotherLinkInEdit = function(){
-      // get link._id
-      // loop over plan.links to match id.
-      // if found, replace plan.links[i] with link
-      // else plan.links.push(link);
-      var l = $scope.link
+      var l = $scope.link;
       var _id = l._id;
       var links = $rootScope.plan.links;
       var found = false;
@@ -93,7 +88,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.submitEditPlan = function(form) {
-      console.log("in submitEditPlan");
+
       $scope.submitted = true;
       if($rootScope.plan.title === undefined) {
         return;
@@ -107,7 +102,6 @@ angular.module('edLnkrApp')
         synopsis: $rootScope.plan.synopsis,
         links: $rootScope.plan.links
       };
-      console.log(plan);
       $http.put('/api/plans/' + $rootScope.plan._id, plan)
       .success(function(data) {
         console.log('Plan updated successfully: ' + data);
