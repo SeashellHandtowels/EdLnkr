@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', function ($scope, $http, $rootScope, $state) {
+  .controller('SpaceCtrl', ['$scope', '$http', '$rootScope', '$state', 'Auth', function ($scope, $http, $rootScope, $state, Auth) {
     $scope.plans = [];
     $scope.link = {};
     $scope.planLinks = [];
-    
+    $scope.user = Auth.getCurrentUser();
+
     $http.get('/api/plans').success(function(plans) {
       $scope.plans = plans;
     });
@@ -28,10 +29,10 @@ angular.module('edLnkrApp')
       }
 
       $scope.addAnotherLink();
-      
+
       var plan = {
         title: $scope.title,
-        user: $rootScope.user._id,
+        user: $scope.user._id,
         synopsis: $scope.synopsis,
         links: $scope.planLinks
       };
@@ -84,7 +85,7 @@ angular.module('edLnkrApp')
           break;
         }
       }
-      $state.go($state.current, {}, {reload: true}); 
+      $state.go($state.current, {}, {reload: true});
     };
 
     $scope.submitEditPlan = function() {
@@ -95,10 +96,10 @@ angular.module('edLnkrApp')
       }
 
       $scope.addAnotherLinkInEdit();
-      
+
       var plan = {
         title: $rootScope.plan.title,
-        user: $rootScope.user._id,
+        user: $scope.user._id,
         synopsis: $rootScope.plan.synopsis,
         links: $rootScope.plan.links
       };
@@ -114,6 +115,6 @@ angular.module('edLnkrApp')
 
     $scope.removePlan = function(plan) {
       $http.delete('/api/plans/' + plan._id);
-      $state.go($state.current, {}, {reload: true}); 
+      $state.go($state.current, {}, {reload: true});
     };
   }]);
