@@ -14,8 +14,10 @@ var util = require('util');
 
 // Get list of plans
 exports.index = function(req, res) {
-  Plan.find(function (err, plans) {
-    if(err) { return handleError(res, err); }
+  Plan.find(function (err, plans) {    
+    if(err) {
+      return handleError(res, err);
+    }
     return res.json(200, plans);
   });
 };
@@ -23,8 +25,12 @@ exports.index = function(req, res) {
 // Get a single plan
 exports.show = function(req, res) {
   Plan.findById(req.params.id, function (err, plan) {
-    if(err) { return handleError(res, err); }
-    if(!plan) { return res.send(404); }
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!plan) {
+      return res.send(404);
+    }
     return res.json(plan);
   });
 };
@@ -32,7 +38,9 @@ exports.show = function(req, res) {
 // Creates a new plan in the DB.
 exports.create = function(req, res) {
   Plan.create(req.body, function(err, plan) {
-    if(err) { return handleError(res, err); }
+    if(err) {
+      return handleError(res, err);
+    }    
     return res.json(201, plan);
   });
 };
@@ -41,13 +49,19 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Plan.findById(req.params.id, function (err, plan) {
-    if (err) { return handleError(res, err); }
-    if(!plan) { return res.send(404); }
+    if (err) {
+      return handleError(res, err);
+    }
+    if(!plan) {
+      return res.send(404);
+    }
     var tempLinks = req.body.links;
     var updated = _.merge(plan, req.body);
     updated.links = tempLinks;
     updated.save(function (err) {
-      if (err) { return handleError(res, err); }
+      if (err) {
+        return handleError(res, err);
+      }
       return res.json(200, plan);
     });
   });
@@ -56,10 +70,16 @@ exports.update = function(req, res) {
 // Deletes a plan from the DB.
 exports.destroy = function(req, res) {
   Plan.findById(req.params.id, function (err, plan) {
-    if(err) { return handleError(res, err); }
-    if(!plan) { return res.send(404); }
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!plan) {
+      return res.send(404);
+    }
     plan.remove(function(err) {
-      if(err) { return handleError(res, err); }
+      if(err) {
+        return handleError(res, err);
+      }
       return res.send(204);
     });
   });
