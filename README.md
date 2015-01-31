@@ -4,7 +4,7 @@
 
 [![Code Climate](https://codeclimate.com/github/SeashellHandtowels/edlnkr/badges/gpa.svg)](https://codeclimate.com/github/SeashellHandtowels/edlnkr)
 
-> Pithy project description
+EdLnkr is the most efficient way to build learning plans using only links from the internet. 
 
 ## Team
 
@@ -22,17 +22,11 @@
 1. [Team](#team)
 1. [Contributing](#contributing)
 
-## Usage
-
-> Some usage instructions
-
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- MongoDB
+- Grunt
 
 ## Development
 
@@ -41,10 +35,18 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
+npm install -g grunt grunt-cli bower
 npm install
 bower install
 ```
+
+## Usage
+
+From the root directory run: 
+
+- `grunt` : Runs jshint, tests and builds the project.
+- `grunt build` : Builds the project. All production ready files are stored in the `dist` directory.
+- `grunt serve` : Builds the project and runs a server locally for a preview of the site. 
 
 ### Roadmap
 
