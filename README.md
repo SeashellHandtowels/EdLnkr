@@ -53,6 +53,24 @@ From the root directory run:
 
 All development is done in folders outside of root. Running `grunt` will build your project into the `dist` folder. Use the `dist` folder for pushing to a production server. You can find instructions for how to do so on the yeoman generator [site](https://github.com/DaftMonk/generator-angular-fullstack#heroku).
 
+An example client component in `client/app`
+
+    main
+    ├── main.js                 - Routes
+    ├── main.controller.js      - Controller for our main route
+    ├── main.controller.spec.js - Test
+    ├── main.html               - View
+    └── main.less               - Styles
+
+An example server component in `server/api`
+
+    thing
+    ├── index.js                - Routes
+    ├── thing.controller.js     - Controller for our `thing` endpoint
+    ├── thing.model.js          - Database model
+    ├── thing.socket.js         - Register socket events
+    └── thing.spec.js           - Test
+
 ### Roadmap
 
 View the project roadmap [here](https://github.com/SeashellHandtowels/EdLnkr/issues)
