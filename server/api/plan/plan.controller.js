@@ -14,7 +14,7 @@ var util = require('util');
 
 // Get list of plans
 exports.index = function(req, res) {
-  Plan.find(function (err, plans) {    
+  Plan.find(function (err, plans) {
     if(err) {
       return handleError(res, err);
     }
@@ -40,7 +40,7 @@ exports.create = function(req, res) {
   Plan.create(req.body, function(err, plan) {
     if(err) {
       return handleError(res, err);
-    }    
+    }
     return res.json(201, plan);
   });
 };
@@ -55,7 +55,9 @@ exports.update = function(req, res) {
     if(!plan) {
       return res.send(404);
     }
-    var tempLinks = req.body.links;
+    var temp = req.query.data.split('[')[1];
+    var paramLinks = {};
+    var tempLinks = req.body.links || paramLinks;
     var updated = _.merge(plan, req.body);
     updated.links = tempLinks;
     updated.save(function (err) {
