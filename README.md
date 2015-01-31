@@ -26,16 +26,17 @@ EdLnkr is the most efficient way to build learning plans using only links from t
 
 - Node 0.10.x
 - MongoDB
-- Grunt
-
-## Development
+- Sass (Ruby or node)
+- Yeoman + angular fullstack generator
 
 ### Installing Dependencies
 
 From within the root directory:
 
 ```sh
-npm install -g grunt grunt-cli bower
+gem install sass
+npm install -g grunt grunt-cli bower yeoman 
+npm install -g generator-angular-fullstack
 npm install
 bower install
 ```
@@ -48,9 +49,13 @@ From the root directory run:
 - `grunt build` : Builds the project. All production ready files are stored in the `dist` directory.
 - `grunt serve` : Builds the project and runs a server locally for a preview of the site. 
 
+## Development
+
+All development is done in folders outside of root. Running `grunt` will build your project into the `dist` folder. Use the `dist` folder for pushing to a production server. You can find instructions for how to do so on the yeoman generator [site](https://github.com/DaftMonk/generator-angular-fullstack#heroku).
+
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/SeashellHandtowels/EdLnkr/issues)
 
 
 ## Contributing
