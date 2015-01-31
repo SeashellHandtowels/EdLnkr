@@ -8,3 +8,4 @@ dist
 /server/config/local.env.js
 .floo
 .flooignore
+.ruby-version
