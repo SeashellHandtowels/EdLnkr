@@ -2,7 +2,9 @@
   <div class="flexy-flex">
     <div class="plan-head">
       <h1>Plan: {{plan.title}}</h1>
+      <hr>
       <div class="synopsis">{{plan.synopsis+":"}}</div>
+      <br>
       <ul>
         <li ng-repeat="link in plan.links">
           <a href="{{link.url}}">{{link.description}}</a>
