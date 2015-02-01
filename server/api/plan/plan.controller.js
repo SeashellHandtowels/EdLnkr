@@ -47,30 +47,25 @@ exports.create = function(req, res) {
 
 // Updates an existing plan in the DB.
 exports.update = function(req, res) {
-  if (Array.isArray(req.body)) {
-    var query = {_id: req.params.id};
-    Plan.update(query, {links: req.body});
-  } else {
-    if(req.body._id) { delete req.body._id; }
-    Plan.findById(req.params.id, function (err, plan) {
+  if(req.body._id) { delete req.body._id; }
+  Plan.findById(req.params.id, function (err, plan) {
+    if (err) {
+      return handleError(res, err);
+    }
+    if(!plan) {
+      return res.send(404);
+    }
+    var updated = _.merge(plan, req.body);
+    if (req.body.links) {
+      updated._doc.links = req.body.links;
+    }
+    updated.save(function (err) {
       if (err) {
         return handleError(res, err);
       }
-      if(!plan) {
-        return res.send(404);
-      }
-      //var temp = req.query.data.split('[')[1];
-      var tempLinks = req.body;
-      var updated = _.merge(plan, req.body);
-      updated._doc.links = tempLinks;
-      updated.save(function (err) {
-        if (err) {
-          return handleError(res, err);
-        }
-        return res.json(200, plan);
-      });
+      return res.json(200, plan);
     });
-  }
+  });
 };
 
 // Deletes a plan from the DB.
