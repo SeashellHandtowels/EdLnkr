@@ -55,11 +55,10 @@ exports.update = function(req, res) {
     if(!plan) {
       return res.send(404);
     }
-    var temp = req.query.data.split('[')[1];
+    //var temp = req.query.data.split('[')[1];
     var paramLinks = {};
     var tempLinks = req.body.links || paramLinks;
     var updated = _.merge(plan, req.body);
-    updated.links = tempLinks;
     updated.save(function (err) {
       if (err) {
         return handleError(res, err);
