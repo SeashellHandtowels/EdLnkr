@@ -57,7 +57,7 @@ exports.update = function(req, res) {
     }
     var updated = _.merge(plan, req.body);
     if (req.body.links) {
-      updated._doc.links = req.body.links;
+      updated.links = req.body.links;
     }
     updated.save(function (err) {
       if (err) {
