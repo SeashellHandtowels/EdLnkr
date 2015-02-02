@@ -17,7 +17,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.removeLink = function(index) {
-      $scope.plan.links.splice(index);
+      $scope.plan.links.splice(index, 1);
     };
 
     $scope.updatePlan = function() {
@@ -53,7 +53,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.removeLink = function(index) {
-      $scope.plan.links.splice(index);
+      $scope.plan.links.splice(index, 1);
     };
 
     $scope.addPlan = function() {
