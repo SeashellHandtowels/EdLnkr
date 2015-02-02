@@ -22,3 +22,4 @@ angular.module('edLnkrApp')
         authenticate: true
       });
   });
+  
