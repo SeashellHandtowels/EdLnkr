@@ -3,15 +3,17 @@
   <div class="col-md-12">
 
     <ul class="plans">     
-      <a ui-sref="create"><button class="btn btn-info">Create a new plan!</button></a>
+      <a ui-sref="newPlan">
+        <button class="btn btn-info">Create a new plan!</button>
+      </a>
 
       <li ng-repeat="plan in plans" class="plan">
-        <a href="/plan/{{plan._id}}">
+        <a ng-href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
         </a>
         <div class="edit-buttons">
-          <a class="glyphicon glyphicon-edit" ng-click="editPlan(plan)"></a> 
-          <a class="glyphicon glyphicon-trash" ng-click="removePlan(plan)"></a>
+          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a> 
+          <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
         </div>
         <br/>
         <span>{{plan.synopsis}}</span>

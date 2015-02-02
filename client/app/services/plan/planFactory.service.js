@@ -19,11 +19,11 @@ angular.module('edLnkrApp')
     };
 
     planFactory.updatePlan = function(plan) {
-      $http.patch(baseUrl + '/' + plan.id, plan);
+      return $http.patch(baseUrl + '/' + plan._id, plan);
     };
 
     planFactory.deletePlan = function(id) {
-      $http.remove(baseUrl + '/' + id);
+      return $http.delete(baseUrl + '/' + id);
     };
 
     return planFactory;

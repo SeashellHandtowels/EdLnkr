@@ -3,23 +3,21 @@
 angular.module('edLnkrApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('plan', {
+      .state('newPlan', {
+        url: '/plan/new',
+        templateUrl: 'app/plan/create.html',
+        controller: 'PlanCreateCtrl',
+        authenticate: true
+      })
+      .state('viewPlan', {
         url: '/plan/:id',
-        templateUrl: 'app/plan/plan.html',
+        templateUrl: 'app/plan/show.html',
         controller: 'PlanCtrl',
         authenticate: true
-      });
-    $stateProvider
-      .state('plan.edit', {
+      })
+      .state('editPlan', {
         url: '/plan/edit/:id',
         templateUrl: 'app/plan/edit.html',
-        controller: 'PlanCtrl',
-        authenticate: true
-      });
-    $stateProvider
-      .state('plan.create', {
-        url: '/plan/create',
-        templateUrl: 'app/plan/create.html',
         controller: 'PlanCtrl',
         authenticate: true
       });

@@ -62,6 +62,9 @@ exports.update = function(req, res) {
       updated.links = req.body.links;
     }
     var updated = _.merge(plan, req.body);
+    if (req.body.links) {
+      updated.links = req.body.links;
+    }
 
     updated.save(function (err) {
       if (err) {
