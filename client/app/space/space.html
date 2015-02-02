@@ -6,7 +6,7 @@
       <a ui-sref="create"><button class="btn btn-info">Create a new plan!</button></a>
 
       <li ng-repeat="plan in plans" class="plan">
-        <a href="/showplan/{{plan._id}}">
+        <a href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
         </a>
         <div class="edit-buttons">
