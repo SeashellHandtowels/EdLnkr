@@ -10,6 +10,8 @@ module.exports = function (grunt) {
     localConfig = {};
   }
 
+  grunt.loadNpmTasks('grunt-ng-constant');
+
   // Load grunt tasks automatically, when needed
   require('jit-grunt')(grunt, {
     express: 'grunt-express-server',
@@ -307,6 +309,38 @@ module.exports = function (grunt) {
       }
     },
 
+    ngconstant: {
+      // Options for all targets
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.client %>/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            apiEndpoint: 'http://localhost:9000/api/'
+          }
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.dist %>/public/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'production',
+            apiEndpoint: 'https://edlnkr.herokuapp.com/api/'
+          }
+        }
+      }
+    },
+
     // Package all the html partials into a single javascript payload
     ngtemplates: {
       options: {
@@ -598,6 +632,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'env:all',
       'injector:sass', 
       'concurrent:server',
@@ -674,7 +709,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'ngconstant:production'
   ]);
 
   grunt.registerTask('default', [
