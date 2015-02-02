@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .factory('planFactory', ['$http', function ($http) {
+  .factory('planFactory', ['$http', 'ENV', function ($http, ENV) {
     var planFactory = {};
-    // var baseUrl = 'http://localhost:9000/api/plans';
-    var baseUrl = 'https://edlnkr.herokuapp.com/api/plans';
+    var baseUrl = ENV.apiEndpoint+'plans';
 
     planFactory.getPlans = function() {
       return $http.get(baseUrl);

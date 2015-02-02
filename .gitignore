@@ -9,3 +9,4 @@ dist
 .floo
 .flooignore
 .ruby-version
+client/config.js
