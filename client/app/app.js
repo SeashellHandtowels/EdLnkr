@@ -5,6 +5,7 @@ angular.module('edLnkrApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
+  'config',
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
