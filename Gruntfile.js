@@ -1,3 +1,4 @@
+/* global require, process, module */
 // Generated on 2015-01-27 using generator-angular-fullstack 2.0.13
 'use strict';
 
