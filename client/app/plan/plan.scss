@@ -5,13 +5,14 @@
   justify-content: center;
 }
 
-.synopsis {
-  text-decoration: underline; 
+.synopsis { 
   text-align: center; 
 }
+
 .plan-head {
     border: 1px solid grey;
-    margin: 15px;
+    min-width: 500px;
+    margin: 20px;
     padding: 15px;
     border-radius: 4px;
     background: #fdfdfd;
@@ -27,4 +28,28 @@ li {
 .trash-icon {
   margin-left: 5px;
 }
+
+ul.plan-links {
+  padding: 20px;
+}
+
+#plan-page {
+  background-color: #e0e0e0;
+  margin-top: -20px;
+}
+
+.plan-links .panel-default {
+  box-shadow: 4px 4px 2px #888888;
+  background: #ffe;
+}
+
+.panel .panel-heading {
+  background: #ffd;
+  border-bottom: 1px solid #eee;
+}
+
+h4 {
+  border-bottom-width: 0;
+}
+
 
