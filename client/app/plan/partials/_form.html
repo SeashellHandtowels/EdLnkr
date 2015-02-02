@@ -12,11 +12,12 @@
   <label>Edit Links</label>
 </div>
 
-<div ng-repeat="link in plan.links" class="input-group">
-  <input type="url" placeholder="Link url" name="url" ng-model="link.url" class="form-control" aria-describedby="remove-addon">
+<div ng-repeat="link in plan.links" class="input-group edit-links">
+  <input type="url" placeholder="Link url" name="url" ng-model="link.url" class="form-control" aria-describedby="remove-addon"> 
+  <input type="text" placeholder="Description" name="description" ng-model="link.description" class="form-control">
   <span class="input-group-btn">
-    <button class="btn btn-default" ng-click="removeLink($index)">
-      <span class="glyphicon glyphicon-remove"></span>
+    <button class="btn btn-default trash-icon" ng-click="removeLink($index)">
+      <span class="glyphicon glyphicon-trash"></span>
     </button>
   </span>
   <br>
