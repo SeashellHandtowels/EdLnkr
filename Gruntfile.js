@@ -663,6 +663,7 @@ module.exports = function (grunt) {
     else if (target === 'client') {
       return grunt.task.run([
         'clean:server',
+        'ngconstant:development',
         'env:all',
         'injector:sass', 
         'concurrent:test',
@@ -675,6 +676,7 @@ module.exports = function (grunt) {
     else if (target === 'e2e') {
       return grunt.task.run([
         'clean:server',
+        'ngconstant:development',
         'env:all',
         'env:test',
         'injector:sass', 
