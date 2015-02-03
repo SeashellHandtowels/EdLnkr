@@ -9,17 +9,19 @@
   text-align: center; 
   margin: 0 auto;
   max-width: 85%;
+  color: white;
 }
 
 .plan-head {
-    border: 1px solid grey;
+    border: 1px solid white;
     min-width: 500px;
     margin: 20px;
     padding: 15px;
     border-radius: 4px;
-    background: #fdfdfd;
+    background: #192f42;
     h1{
       text-align: center;
+      color: white;
     }
 }
 
@@ -36,22 +38,25 @@ ul.plan-links {
 }
 
 #plan-page {
-  background-color: #e0e0e0;
+  background-color: #192f42;
   margin-top: -20px;
 }
 
 .plan-links .panel-default {
-  box-shadow: 4px 4px 2px #888888;
-  background: #ffe;
+  box-shadow: 0;
+  font-size: 1.3em;
 }
 
 .panel .panel-heading {
-  background: #ffd;
-  border-bottom: 1px solid #eee;
+  background: #ddd;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 0;
 }
 
 h4 {
   border-bottom-width: 0;
 }
-
+.panel.panel-default {
+  box-shadow: none;
+}
 
