@@ -2,17 +2,42 @@
 <div class="container">
   <div class="col-md-12">
 
-    <ul class="plans">     
+    <ul class="plans">
       <a ui-sref="newPlan">
         <button class="btn btn-info">Create a new plan!</button>
       </a>
 
-      <li ng-repeat="plan in plans" class="plan">
+      <form class="form-search">
+        <input type="search" ng-model="search" class="form-control input-medium search-query" placeholder="Search Bar">
+      </form>
+
+      <label class="formgroup">Category:
+        <select ng-model="category">
+          <option value="">All</option>
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="Music">Music</option>
+          <option value="Languages">Languages</option>
+          <option value="Food">Food</option>
+          <option value="DIY">DIY</option>
+          <option value="Skittles">Skittles</option>
+          <option value="Nature">Nature</option>
+          <option value="Funny">Funny</option>
+          <option value="Geography">Geography</option>
+          <option value="Life">Life</option>
+          <option value="The Universe">The Universe</option>
+          <option value="and Everything Else">and Everything Else</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+
+      <li ng-repeat="plan in plans | filter:search | filter:category" class="plan">
         <a ng-href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
         </a>
+        | <span>{{plan.category}}</span>
         <div class="edit-buttons">
-          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a> 
+          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
           <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
         </div>
         <br/>
@@ -20,5 +45,5 @@
       </li>
 
     </ul>
-  </div> 
+  </div>
 </div>

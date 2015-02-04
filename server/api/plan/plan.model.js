@@ -22,6 +22,13 @@ var PlanSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+  rating: {
+    type: Number
+  },
+  category: {
+    type: String
+  },
+
   links: [ {url: String, description: String} ]
 
 });
