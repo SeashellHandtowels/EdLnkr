@@ -335,7 +335,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'https://edlnkr.herokuapp.com/api/'
+            apiEndpoint: 'https://desolate-bastion-4104.herokuapp.com/api/'
           }
         }
       }
@@ -399,7 +399,7 @@ module.exports = function (grunt) {
               cwd: '<%= yeoman.client %>/bower_components/bootstrap/dist',
               src: ['fonts/*.*'],
               dest: '<%= yeoman.dist %>/public'
-          }, 
+          },
           {
             //for font-awesome
             expand: true,
@@ -550,7 +550,7 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.client %>/index.html': [
               ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-               '!{.tmp,<%= yeoman.client %>}/app/app.js', 
+               '!{.tmp,<%= yeoman.client %>}/app/app.js',
                '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
                '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js']
             ]
@@ -621,7 +621,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:server',
         'injector',
         'wiredep',
@@ -634,7 +634,7 @@ module.exports = function (grunt) {
       'clean:server',
       'ngconstant:development',
       'env:all',
-      'injector:sass', 
+      'injector:sass',
       'concurrent:server',
       'injector',
       'wiredep',
@@ -665,7 +665,7 @@ module.exports = function (grunt) {
         'clean:server',
         'ngconstant:development',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'autoprefixer',
@@ -679,7 +679,7 @@ module.exports = function (grunt) {
         'ngconstant:development',
         'env:all',
         'env:test',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'wiredep',
@@ -697,7 +697,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'injector:sass', 
+    'injector:sass',
     'concurrent:dist',
     'injector',
     'wiredep',
