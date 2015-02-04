@@ -1,18 +1,21 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('PlanCtrl', ['$scope', 'planFactory', '$state', '$stateParams', 
+  .controller('PlanCtrl', ['$scope', 'planFactory', '$state', '$stateParams',
     function ($scope, planFactory, $state, $stateParams) {
 
     planFactory.getPlan($stateParams.id)
     .success(function(plan) {
       $scope.plan = plan;
+        console.log (JSON.stringify (plan));
+        console.log('this is rating : '+plan.rating)
     })
     .error(function(err) {
       console.log('Something went wrong. Error: ' + err);
     });
 
     $scope.addLink = function() {
+      $scope.plan.rating = 1;
       $scope.plan.links.push({index: '', url: '', description: ''});
     };
 
@@ -43,7 +46,7 @@ angular.module('edLnkrApp')
     };
 
   }])
-  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state', 
+  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state',
     function ($scope, planFactory, $state) {
     $scope.plan = {};
     $scope.plan.links = [];
@@ -57,6 +60,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.addPlan = function() {
+      $scope.plan.rating = 1;
       planFactory.createPlan($scope.plan)
       .success(function(plan) {
         console.log('Plan created', plan);

@@ -47,8 +47,8 @@ exports.create = function(req, res) {
 
 // Updates an existing plan in the DB.
 exports.update = function(req, res) {
-  if(req.body._id) { 
-    delete req.body._id; 
+  if(req.body._id) {
+    delete req.body._id;
   }
   Plan.findById(req.params.id, function (err, plan) {
     if (err) {
@@ -59,7 +59,7 @@ exports.update = function(req, res) {
     }
 
     var updated = _.merge(plan, req.body);
-
+    console.log(req.body);
     // Needed because merge does not affect the links array.
     if (req.body.links) {
       updated.links = req.body.links;
