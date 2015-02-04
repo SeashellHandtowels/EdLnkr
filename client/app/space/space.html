@@ -2,17 +2,21 @@
 <div class="container">
   <div class="col-md-12">
 
-    <ul class="plans">     
+    <ul class="plans">
       <a ui-sref="newPlan">
         <button class="btn btn-info">Create a new plan!</button>
       </a>
 
-      <li ng-repeat="plan in plans" class="plan">
+      <form class="form-search">
+        <input type="search" ng-model="search" class="form-control input-medium search-query" placeholder="Search Bar">
+      </form>
+
+      <li ng-repeat="plan in plans | filter:search" class="plan">
         <a ng-href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
         </a>
         <div class="edit-buttons">
-          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a> 
+          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
           <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
         </div>
         <br/>
@@ -20,5 +24,5 @@
       </li>
 
     </ul>
-  </div> 
+  </div>
 </div>
