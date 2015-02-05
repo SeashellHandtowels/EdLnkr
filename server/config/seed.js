@@ -24,3 +24,73 @@ User.find({}).remove(function() {
     }
   );
 });
+
+var Plan = require('../api/plan/plan.model');
+PLan.find({}).remove(function(){
+  Plan.create({
+    title: 'local',
+    synopsis: 'Learn Javascript',
+    user: 'test@test.com',
+    rating: '4',
+    category: 'test'
+  }, {
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'local',
+    synopsis: 'Test User',
+    user: 'test@test.com',
+    rating: 'test',
+    category: 'test'
+  },{
+    title: 'Awesome Plan',
+    synopsis: 'a plan for world domination',
+    user: 'admin@admin.com',
+    rating: 'admin',
+    category: 'life'
+  },
+  }, function() {
+      console.log('finished populating plans');
+    }
+  );
+
+});
