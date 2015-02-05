@@ -25,14 +25,19 @@ User.find({}).remove(function() {
       console.log('finished populating users');
       console.log(user.id);
       var plans = [];
-
+      var userID = {};
+      userID[user._id] = true;
       plans.push(
         {
           date: new Date(),
           title: 'Learn Javascript',
           synopsis: 'join the world of programming',
           user: user._id,
-          rating: '4',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Math'
         }, 
         {
@@ -40,7 +45,11 @@ User.find({}).remove(function() {
           title: 'Learn To Fly',
           synopsis: 'flying is such an amazing expernce.',
           user: user._id,
-          rating: '5',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'other'
         },
         {
@@ -48,7 +57,11 @@ User.find({}).remove(function() {
           title: 'Carl Seigan rules',
           synopsis: 'Need I say more?',
           user: user._id,
-          rating: '5',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'The Universe'
         },
         {
@@ -56,7 +69,11 @@ User.find({}).remove(function() {
           title: 'Learn to Cook',
           synopsis: 'Be the life of the party by cooking.',
           user: user._id,
-          rating: '3',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Food'
         },
         {
@@ -64,7 +81,11 @@ User.find({}).remove(function() {
           title: 'Klingon',
           synopsis: 'nerds',
           user: user._id,
-          rating: '2',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Languages'
         },
         {
@@ -72,7 +93,11 @@ User.find({}).remove(function() {
           title: 'Much Music Making',
           synopsis: 'More bass in this place',
           user: user._id,
-          rating: '4',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Music'
         },
         {
@@ -80,7 +105,11 @@ User.find({}).remove(function() {
           title: 'Mathematics by Socrates',
           synopsis: 'because 1 + 1 =  wisdom',
           user: user._id,
-          rating: '1',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Math'
         },
         {
@@ -88,7 +117,11 @@ User.find({}).remove(function() {
           title: 'Cooking Emus',
           synopsis: 'Extinction tastes divine',
           user: user._id,
-          rating: '4',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'Food'
         },
         {
@@ -96,7 +129,11 @@ User.find({}).remove(function() {
           title: 'How to touch the stars',
           synopsis: 'Reach for greatness and incinerate yourself',
           user: user._id,
-          rating: '3',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'The Universe'
         },
         {
@@ -104,7 +141,11 @@ User.find({}).remove(function() {
           title: 'Awesome Plan',
           synopsis: 'a plan for world domination',
           user: user._id,
-          rating: '2',
+          rating: {
+            id: userID,
+            score: 1,
+            num: 1
+          },
           category: 'life'
         }
       );
