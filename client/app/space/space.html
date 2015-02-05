@@ -2,6 +2,8 @@
 <div class="container">
   <div class="col-md-12">
 
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
     <ul class="plans">
       <a ui-sref="newPlan">
         <button class="btn btn-info">Create a new plan!</button>
@@ -31,15 +33,28 @@
         </select>
       </label>
 
-      <li ng-repeat="plan in plans | filter:search | filter:category" class="plan">
+
+
+      <label class="formgroup">Category:
+        <select ng-model="starValue">
+          <option value="">All Ratings</option>
+          <option value="4">4 Star and above</option>
+          <option value="3">3 Star</option>
+          <option value="2">2 Star</option>
+          <option value="1">1 Star</option>
+
+        </select>
+      </label>
+
+      <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan">
         <a ng-href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
-          {{console.log(plan.user)}}
+
         </a>
-        | <span>{{plan.category}}</span>
+         <span>{{plan.category}}</span>
         <div class="edit-buttons">
 
-          <span> {{(plan.rating.score / plan.rating.num).toFixed(2)}} Average star rating</span>
+          <span> {{ ((plan.rating.score / plan.rating.num).toFixed(2)) }} Average star rating</span>
           <rating ng-model="num" max="max" ng-click="addRating(plan, num)" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
           <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
           <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>

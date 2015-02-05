@@ -8,8 +8,7 @@ angular.module('edLnkrApp')
     planFactory.getPlan($stateParams.id)
     .success(function(plan) {
       $scope.plan = plan;
-        console.log (JSON.stringify (plan));
-        console.log('this is rating : '+plan.rating)
+
     })
     .error(function(err) {
       console.log('Something went wrong. Error: ' + err);
@@ -63,8 +62,8 @@ angular.module('edLnkrApp')
     $scope.addPlan = function() {
       $scope.plan.rating = {};
       $scope.plan.rating.id = {iExist: true};
-      $scope.plan.rating.score = 0;
-      $scope.plan.rating.num = 0;
+      $scope.plan.rating.score = 3;
+      $scope.plan.rating.num = 1;
       planFactory.createPlan($scope.plan)
       .success(function(plan) {
         console.log('Plan created', plan);
