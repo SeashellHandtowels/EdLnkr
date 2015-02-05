@@ -1,4 +1,5 @@
 /**
+/**
  * GET     /things              ->  index
  * POST    /things              ->  create
  * GET     /things/:id          ->  show
