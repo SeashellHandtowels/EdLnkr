@@ -26,70 +26,80 @@ User.find({}).remove(function() {
 });
 
 var Plan = require('../api/plan/plan.model');
+
 Plan.find({}).remove(function(){
   Plan.create({
+    date: new Date(),
     title: 'Learn Javascript',
     synopsis: 'join the world of programming',
     user: 'test@test.com',
     rating: '4',
     category: 'Math'
   }, {
+    date: new Date(),
     title: 'Learn To Fly',
     synopsis: 'flying is such an amazing expernce.',
     user: 'test@test.com',
     rating: '5',
     category: 'other'
   },{
+    date: new Date(),
     title: 'Carl Seigan rules',
     synopsis: 'Need I say more?',
     user: 'test@test.com',
     rating: '5',
     category: 'The Universe'
   },{
+    date: new Date(),
     title: 'Learn to Cook',
     synopsis: 'Be the life of the party by cooking.',
     user: 'admin@admin.com',
     rating: '3',
     category: 'Food'
   },{
+    date: new Date(),
     title: 'Klingon',
-    synopsis: 'Test User',
+    synopsis: 'nerds',
     user: 'test@test.com',
-    rating: 'test',
+    rating: '2',
     category: 'Languages'
   },{
+    date: new Date(),
     title: 'Much Music Making',
-    synopsis: 'Test User',
+    synopsis: 'More bass in this place',
     user: 'test@test.com',
-    rating: 'test',
+    rating: '4',
     category: 'Music'
   },{
+    date: new Date(),
     title: 'Mathematics by Socrates',
-    synopsis: 'Test User',
+    synopsis: 'because 1 + 1 =  wisdom',
     user: 'test@test.com',
-    rating: 'test',
+    rating: '1',
     category: 'Math'
   },{
+    date: new Date(),
     title: 'Cooking Emus',
-    synopsis: 'Test User',
+    synopsis: 'Extinction tastes divine',
     user: 'test@test.com',
-    rating: 'test',
+    rating: '4',
     category: 'Food'
   },{
+    date: new Date(),
     title: 'How to touch the stars',
-    synopsis: 'Test User',
+    synopsis: 'Reach for greatness and incinerate yourself',
     user: 'test@test.com',
-    rating: 'test',
+    rating: '3',
     category: 'The Universe'
   },{
+    date: new Date(),
     title: 'Awesome Plan',
     synopsis: 'a plan for world domination',
     user: 'admin@admin.com',
-    rating: 'admin',
+    rating: '2',
     category: 'life'
   }, function() {
       console.log('finished populating plans');
     }
   );
-
 });
