@@ -1,8 +1,6 @@
 # EdLnkr
 
-[ ![Codeship Status for SeashellHandtowels/EdLnkr](https://codeship.com/projects/be3539f0-87ec-0132-09c5-16b8ca61b731/status?branch=master)](https://codeship.com/projects/59298)
-
-[![Code Climate](https://codeclimate.com/github/SeashellHandtowels/edlnkr/badges/gpa.svg)](https://codeclimate.com/github/SeashellHandtowels/edlnkr)
+[ ![Codeship Status for HumpbackSeahorses/EdLnkr](https://codeship.com/projects/8d64f920-8e25-0132-baa0-6a5ca7220068/status?branch=master)](https://codeship.com/projects/60894)
 
 EdLnkr is the most efficient way to build learning plans using only links from the internet. 
 

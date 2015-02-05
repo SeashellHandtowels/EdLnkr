@@ -5,9 +5,11 @@
 #banner {
     border-bottom: none;
     margin-top: -20px;
+    /*filter: alpha(opacity=40);*/
+  background-image: url('../../assets/images/texture.png');
 }
 
-#banner h1 {
+#banner h3 {
     font-size: 90px;
     line-height: 1;
     letter-spacing: -1px;
@@ -38,4 +40,26 @@
 }
 .panel-default {
   box-shadow: 4px 4px 2px #888888;
+}
+
+.imageContainer{
+  height: 800px;
+  width: 100%;
+}
+
+.imageContainer img{
+  display: block;
+ // width: 90%;
+//  -webkit-filter: sepia(1);
+//  filter: sepia(1);
+}
+
+.jumbotron {
+  background-color: #DFE2DB;
+  background-image: url('../../assets/images/paper.png');
+  height: 900px;
+}
+
+.jumbotron .row {
+  text-align: center;
 }

@@ -5,6 +5,7 @@
 'use strict';
 
 var errors = require('./components/errors');
+var sslRedirect = require('heroku-ssl-redirect');
 
 module.exports = function(app) {
 
@@ -13,6 +14,9 @@ module.exports = function(app) {
   app.use('/api/plans', require('./api/plan'));
 
   app.use('/auth', require('./auth'));
+
+  //redirect to https to prevent cors issue
+  app.use(sslRedirect());
   
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
