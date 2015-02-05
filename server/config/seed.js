@@ -23,7 +23,7 @@ User.find({}).remove(function() {
     password: 'admin'
   }, function(err, user) {
       console.log('finished populating users');
-      
+      console.log(user.id);
       var plans = [];
 
       plans.push(
@@ -31,7 +31,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Learn Javascript',
           synopsis: 'join the world of programming',
-          user: user.id,
+          user: user._id,
           rating: '4',
           category: 'Math'
         }, 
@@ -39,7 +39,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Learn To Fly',
           synopsis: 'flying is such an amazing expernce.',
-          user: user.id,
+          user: user._id,
           rating: '5',
           category: 'other'
         },
@@ -47,7 +47,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Carl Seigan rules',
           synopsis: 'Need I say more?',
-          user: user.id,
+          user: user._id,
           rating: '5',
           category: 'The Universe'
         },
@@ -55,7 +55,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Learn to Cook',
           synopsis: 'Be the life of the party by cooking.',
-          user: user.id,
+          user: user._id,
           rating: '3',
           category: 'Food'
         },
@@ -63,7 +63,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Klingon',
           synopsis: 'nerds',
-          user: user.id,
+          user: user._id,
           rating: '2',
           category: 'Languages'
         },
@@ -71,7 +71,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Much Music Making',
           synopsis: 'More bass in this place',
-          user: user.id,
+          user: user._id,
           rating: '4',
           category: 'Music'
         },
@@ -79,7 +79,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Mathematics by Socrates',
           synopsis: 'because 1 + 1 =  wisdom',
-          user: user.id,
+          user: user._id,
           rating: '1',
           category: 'Math'
         },
@@ -87,7 +87,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Cooking Emus',
           synopsis: 'Extinction tastes divine',
-          user: user.id,
+          user: user._id,
           rating: '4',
           category: 'Food'
         },
@@ -95,7 +95,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'How to touch the stars',
           synopsis: 'Reach for greatness and incinerate yourself',
-          user: user.id,
+          user: user._id,
           rating: '3',
           category: 'The Universe'
         },
@@ -103,7 +103,7 @@ User.find({}).remove(function() {
           date: new Date(),
           title: 'Awesome Plan',
           synopsis: 'a plan for world domination',
-          user: user.id,
+          user: user._id,
           rating: '2',
           category: 'life'
         }
@@ -117,8 +117,6 @@ User.find({}).remove(function() {
         );
       });
     
-
-
     }
   );
 });
