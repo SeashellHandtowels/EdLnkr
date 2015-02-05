@@ -26,68 +26,67 @@ User.find({}).remove(function() {
 });
 
 var Plan = require('../api/plan/plan.model');
-PLan.find({}).remove(function(){
+Plan.find({}).remove(function(){
   Plan.create({
-    title: 'local',
-    synopsis: 'Learn Javascript',
+    title: 'Learn Javascript',
+    synopsis: 'join the world of programming',
     user: 'test@test.com',
     rating: '4',
-    category: 'test'
+    category: 'Math'
   }, {
-    title: 'local',
-    synopsis: 'Test User',
+    title: 'Learn To Fly',
+    synopsis: 'flying is such an amazing expernce.',
     user: 'test@test.com',
-    rating: 'test',
-    category: 'test'
+    rating: '5',
+    category: 'other'
   },{
-    title: 'local',
-    synopsis: 'Test User',
+    title: 'Carl Seigan rules',
+    synopsis: 'Need I say more?',
     user: 'test@test.com',
-    rating: 'test',
-    category: 'test'
+    rating: '5',
+    category: 'The Universe'
   },{
-    title: 'local',
-    synopsis: 'Test User',
-    user: 'test@test.com',
-    rating: 'test',
-    category: 'test'
+    title: 'Learn to Cook',
+    synopsis: 'Be the life of the party by cooking.',
+    user: 'admin@admin.com',
+    rating: '3',
+    category: 'Food'
   },{
-    title: 'local',
+    title: 'Klingon',
     synopsis: 'Test User',
     user: 'test@test.com',
     rating: 'test',
-    category: 'test'
+    category: 'Languages'
   },{
-    title: 'local',
+    title: 'Much Music Making',
     synopsis: 'Test User',
     user: 'test@test.com',
     rating: 'test',
-    category: 'test'
+    category: 'Music'
   },{
-    title: 'local',
+    title: 'Mathematics by Socrates',
     synopsis: 'Test User',
     user: 'test@test.com',
     rating: 'test',
-    category: 'test'
+    category: 'Math'
   },{
-    title: 'local',
+    title: 'Cooking Emus',
     synopsis: 'Test User',
     user: 'test@test.com',
     rating: 'test',
-    category: 'test'
+    category: 'Food'
   },{
-    title: 'local',
+    title: 'How to touch the stars',
     synopsis: 'Test User',
     user: 'test@test.com',
     rating: 'test',
-    category: 'test'
+    category: 'The Universe'
   },{
     title: 'Awesome Plan',
     synopsis: 'a plan for world domination',
     user: 'admin@admin.com',
     rating: 'admin',
     category: 'life'
-  },
   }, function() {
       console.log('finished populating plans');
     }
