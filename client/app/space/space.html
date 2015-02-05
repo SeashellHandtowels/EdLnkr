@@ -34,9 +34,13 @@
       <li ng-repeat="plan in plans | filter:search | filter:category" class="plan">
         <a ng-href="/plan/{{plan._id}}">
           <span>{{plan.title}}</span>
+          {{console.log(plan.user)}}
         </a>
         | <span>{{plan.category}}</span>
         <div class="edit-buttons">
+
+          <span> {{(plan.rating.score / plan.rating.num).toFixed(2)}} Average star rating</span>
+          <rating ng-model="num" max="max" ng-click="addRating(plan, num)" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
           <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
           <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
         </div>

@@ -4,6 +4,7 @@ angular.module('edLnkrApp')
   .controller('PlanCtrl', ['$scope', 'planFactory', '$state', '$stateParams',
     function ($scope, planFactory, $state, $stateParams) {
 
+
     planFactory.getPlan($stateParams.id)
     .success(function(plan) {
       $scope.plan = plan;
@@ -15,7 +16,7 @@ angular.module('edLnkrApp')
     });
 
     $scope.addLink = function() {
-      $scope.plan.rating = 1;
+
       $scope.plan.links.push({index: '', url: '', description: ''});
     };
 
@@ -46,8 +47,8 @@ angular.module('edLnkrApp')
     };
 
   }])
-  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state',
-    function ($scope, planFactory, $state) {
+  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state', 'Auth',
+    function ($scope, planFactory, $state, Auth) {
     $scope.plan = {};
     $scope.plan.links = [];
 
@@ -60,7 +61,10 @@ angular.module('edLnkrApp')
     };
 
     $scope.addPlan = function() {
-      $scope.plan.rating = 1;
+      $scope.plan.rating = {};
+      $scope.plan.rating.id = {iExist: true};
+      $scope.plan.rating.score = 0;
+      $scope.plan.rating.num = 0;
       planFactory.createPlan($scope.plan)
       .success(function(plan) {
         console.log('Plan created', plan);

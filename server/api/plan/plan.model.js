@@ -23,7 +23,10 @@ var PlanSchema = new Schema({
     ref: 'User'
   },
   rating: {
-    type: Number
+    id:{},
+    score: 0,
+    num: 0
+
   },
   category: {
     type: String
