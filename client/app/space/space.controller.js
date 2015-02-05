@@ -7,7 +7,25 @@ angular.module('edLnkrApp')
     $scope.getCurrentUser = Auth.getCurrentUser();
     $scope.plans = [];
     $scope.max = 5;
-    $scope.num = '';
+    $scope.alerts = [];
+   // $scope.num =   ((plan.rating.score / plan.rating.num).toFixed(2))
+
+    $scope.greaterThan = function(value){
+      return function(plan){
+
+        if(value === undefined ){
+          value = 0;
+        }
+
+        var numerator = plan.rating.score;
+        var denominator = plan.rating.num;
+        var crazyNum = (numerator / denominator).toFixed(2);
+
+        if(crazyNum > value){
+          return true;
+        }
+      };
+    };
 
     $scope.hoveringOver = function(value){
       $scope.overStar = value;
@@ -20,7 +38,6 @@ angular.module('edLnkrApp')
     planFactory.getPlans()
     .success(function(plans) {
       $scope.plans = plans;
-        console.log("this is plans from getPlans: "+plans);
     })
     .error(function(err) {
       console.log('Something went wrong. Error: ' + err);
@@ -37,24 +54,48 @@ angular.module('edLnkrApp')
       });
     };
 
-      $scope.addRating = function(plan, num){
+      angular.element(document).ready(function () {
+        window.setTimeout(function() {
+          $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+            $(this).remove();
+          });
+        }, 5000);
+      });
 
-       if(!plan.rating.id[$scope.getCurrentUser._id]){
-          plan.rating.id[$scope.getCurrentUser._id] = true;
-          plan.rating.score += num;
-          plan.rating.num += 1;
-          planFactory.updatePlan(plan).success(
-            function(){
-              console.log('you have voted')
-            }
-          );
-
-       }else{
-          console.log('you have already voted');
-       }
-
-
-
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
       };
+
+    $scope.addRating = function(plan, num) {
+
+      if (!plan.rating.id[$scope.getCurrentUser._id]) {
+        plan.rating.id[$scope.getCurrentUser._id] = true;
+        plan.rating.score += num;
+        plan.rating.num += 1;
+        planFactory.updatePlan (plan).success (
+          function () {
+            $scope.alerts.push ({type : 'success' , msg : 'Thank you for voting!'});
+            angular.element(document).ready(function () {
+              window.setTimeout(function() {
+                $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                  $scope.alerts.pop();
+                });
+              }, 5000);
+            });
+
+          }
+        );
+
+      } else {
+        $scope.alerts.push ({type : 'danger' , msg : 'Sorry, we only allow one vote per person!'});
+        angular.element(document).ready(function () {
+          window.setTimeout(function() {
+            $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+              $scope.alerts.pop();
+            });
+          }, 5000);
+        });
+      }
+    };
 
   }]);
