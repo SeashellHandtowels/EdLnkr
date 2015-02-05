@@ -25,9 +25,12 @@ var PlanSchema = new Schema({
   rating: {
     type: Number
   },
+<<<<<<< HEAD
+=======
   category: {
     type: String
   },
+>>>>>>> 9830ccb8cd27401c2025eaa3ed660198715690c6
 
   links: [ {url: String, description: String} ]
 
