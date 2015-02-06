@@ -35,7 +35,7 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 2,
             num: 1
           },
           category: 'Math'
@@ -47,7 +47,7 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 5,
             num: 1
           },
           category: 'other'
@@ -95,7 +95,7 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3,
             num: 1
           },
           category: 'Music'
@@ -143,7 +143,7 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 4,
             num: 1
           },
           category: 'life'

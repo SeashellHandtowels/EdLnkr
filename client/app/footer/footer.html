@@ -1,0 +1,44 @@
+<div ng-controller="footerCtrl" class="row">
+  <div class="col-sm-4" id="featured-plans" >
+    <div class="center-wrapper">
+      <h4>Latest Plans:</h4>
+      <li ng-repeat="plan in featuredPlans | orderBy: 'plan.date' : reverse=true | limitTo:4" class="featured-plan">
+        <a ng-href="/plan/{{plan._id}}">
+          <span>{{plan.title}}</span>
+        </a>
+        <span>{{plan.category}}</span>
+      </li>
+    </div>
+  </div>
+  <div class="col-sm-4" id="featured-plans">
+    <div class="center-wrapper">
+      <h4>Highest Rated:</h4>
+      <li ng-repeat="plan in featuredPlans | orderBy: 'rating.score' : reverse=true | limitTo: 4" class="featured-plan">
+        <a ng-href="/plan/{{plan._id}}">
+          <span>{{plan.title}}</span>
+        </a>
+        <span>{{plan.category}}</span>
+      </li>
+    </div>
+  </div>
+  <div class="col-sm-4" id="featured-plans">
+    <div class="center-wrapper">
+      <h4>Most Viewed:</h4>
+      <li ng-repeat="plan in featuredPlans | filter:views | limitTo: 4" class="featured-plan">
+        <a ng-href="/plan/{{plan._id}}">
+          <span>{{plan.title}}</span>
+        </a>
+        <span>{{plan.category}}</span>
+      </li>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <a href="https://github.com/HumpbackSeahorses/EdLnkr">© 2015 Humpback Seahorses</a> |
+    <a href="https://github.com/HumpbackSeahorses/EdLnkr/issues">Issues</a> |
+    <a href="https://github.com/HumpbackSeahorses/EdLnkrExt">Chrome Extension</a>
+  </div>
+</footer>
