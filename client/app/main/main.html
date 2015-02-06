@@ -1,13 +1,40 @@
 <div class="container">
   <div class="col-md-12">
 
+    <div class="landing-page" ng-hide="isLoggedIn() || closedLanding">
+      <div class="banner">
+        <h3>Desolate Bastion</h3>
+        <p class="lead">The best curation of information, by the people for the people. </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <h2>Put together lesson plans <br> using free resources from the internet</h2>
+          <h3>We are a community driven site, to help us find the best resources to further our education</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="col-md-6 col-md-offset-3" id="tryit" ng-click="hideLandingPage()">Try out Desolate Bastion</button>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <text>"I love being able to learn how to Krochet!" - Grandma</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"Ed.Lnkr taught me how to play basketball" - Michael Jordan</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"My life has changed after using Ed.Lnkr!" - anonymous</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"I can cook now!" - College Student</text>
+        </div>
+      </div>
+    </div>
+
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-
-    <ul class="plans">
-      <a ui-sref="newPlan">
-        <button class="btn btn-info" ng-show="isLoggedIn()">Create a new plan!</button>
-      </a>
-
+    <div ng-show="isLoggedIn() || closedLanding">
       <form class="form-search">
         <input type="search" ng-model="search" class="form-control input-medium search-query" placeholder="Search Bar">
       </form>
@@ -32,8 +59,6 @@
         </select>
       </label>
 
-
-
       <label class="formgroup">Category:
 
         <select ng-model="starValue"><option value="">All Ratings</option>
@@ -45,23 +70,31 @@
         </select>
       </label>
 
-      <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan">
-        <a ng-href="/plan/{{plan._id}}">
-          <span>{{plan.title}}</span>
-
+      <ul class="plans">
+        <a ui-sref="newPlan">
+          <button class="btn btn-info" ng-show="isLoggedIn()">Create a new plan!</button>
         </a>
-         <span>{{plan.category}}</span>
-        <div class="edit-buttons">
+        <div class="plans-container">
+          <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan">
+            <a ng-href="/plan/{{plan._id}}">
+              <span>{{plan.title}}</span>
 
-          <span > {{ ((plan.rating.score / plan.rating.num).toFixed(2)) }} Average star rating</span>
-          <rating ng-model="plan.rating.avg" max="max" ng-click="addRating(plan, plan.rating.avg)" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-          <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
-          <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
+            </a>
+            <span>{{plan.category}}</span>
+            <div class="edit-buttons">
+
+              <span > {{ ((plan.rating.score / plan.rating.num).toFixed(2)) }} Average star rating</span>
+              <rating ng-model="plan.rating.avg" max="max" ng-click="addRating(plan, plan.rating.avg)" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+              <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
+              <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
+            </div>
+            <br/>
+            <span>{{plan.synopsis}}</span>
+          </li>
         </div>
-        <br/>
-        <span>{{plan.synopsis}}</span>
-      </li>
 
-    </ul>
+      </ul>
+    </div>
+
   </div>
 </div>
