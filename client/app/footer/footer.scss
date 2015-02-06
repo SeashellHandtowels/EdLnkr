@@ -1,5 +1,5 @@
 #featured-plans {
-  padding:0;
+  padding: 0;
   margin: 0;
 }
 .center-wrapper{
@@ -17,5 +17,7 @@
 }
 
 .row{
+  position: absolute;
+  bottom: 0;
   width:100vw;
 }
