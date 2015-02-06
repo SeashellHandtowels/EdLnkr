@@ -35,14 +35,14 @@ angular.module('edLnkrApp')
     };
 
     $scope.deletePlan = function() {
-      planFactory.deletePlan($scope.plan._id)
-      .success(function(plan) {
-        console.log('Plan deleted.', plan);
-        $state.go('space');
-      })
-      .error(function(err) {
-        console.log('Something went wrong. Error: ' + err);
-      });
+        planFactory.deletePlan ($scope.plan._id)
+          .success (function (plan) {
+            console.log ('Plan deleted.' , plan);
+            $state.go ('space');
+          })
+          .error (function (err) {
+            console.log ('Something went wrong. Error: ' + err);
+          });
     };
 
   }])
