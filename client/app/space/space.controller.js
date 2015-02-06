@@ -31,7 +31,6 @@ angular.module('edLnkrApp')
       $scope.overStar = value;
     };
 
-
     planFactory.getPlans()
     .success(function(plans) {
         //intercept plans
@@ -63,6 +62,8 @@ angular.module('edLnkrApp')
       }
     };
 
+
+
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
       };
@@ -76,10 +77,6 @@ angular.module('edLnkrApp')
           planFactory.updatePlan (plan).success (
             function () {
               alertFade.alert($scope, 'success', 'Thank you for voting!');
-            angular.element(document).ready(function () {
-              window.setTimeout(function() {
-                $('.alert').fadeTo(1500, 0).slideUp(500, function(){
-                  $scope.alerts.pop();
             }
           );
 
