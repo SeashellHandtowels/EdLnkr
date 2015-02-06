@@ -9,6 +9,15 @@ angular.module('edLnkrApp')
     $scope.plans = [];
     $scope.max = 5;
 
+    $scope.incrementCount = function(plan){
+      if(Auth.isLoggedIn()){
+        if (!plan.views.id[$scope.getCurrentUser._id]) {
+          plan.views.id[$scope.getCurrentUser._id] = true;
+          plan.views.count += 1;
+          planFactory.updatePlan(plan);
+        }
+      }
+    };
 
     $scope.greaterThan = function(value){
       return function(plan){
@@ -33,14 +42,13 @@ angular.module('edLnkrApp')
 
     planFactory.getPlans()
     .success(function(plans) {
-        //intercept plans
+
         plans.forEach(function(plan){
           var numerator = plan.rating.score;
           var denominator = plan.rating.num;
           plan.rating.avg = Math.round(numerator / denominator);
         });
-        //iterate over plans
-        //create plans[i].avg = plans[i].score / plans[i].num
+
       $scope.plans = plans;
     })
     .error(function(err) {
