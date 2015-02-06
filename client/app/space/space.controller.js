@@ -63,8 +63,6 @@ angular.module('edLnkrApp')
       }
     };
 
-
-
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
       };
