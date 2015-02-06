@@ -45,8 +45,8 @@ angular.module('edLnkrApp')
     };
 
   }])
-  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state', 'Auth',
-    function ($scope, planFactory, $state, Auth) {
+  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state',
+    function ($scope, planFactory, $state) {
     $scope.plan = {};
     $scope.plan.links = [];
 
@@ -59,18 +59,19 @@ angular.module('edLnkrApp')
     };
 
     $scope.addPlan = function() {
-      $scope.plan.rating = {};
-      $scope.plan.rating.id = {iExist: true};
-      $scope.plan.rating.score = 3;
-      $scope.plan.rating.num = 1;
-      planFactory.createPlan($scope.plan)
-      .success(function(plan) {
-        console.log('Plan created', plan);
-        $state.go('space');
-      })
-      .error(function(err) {
-        console.log('Something went wrong. Error: ' + err);
-      });
+        $scope.plan.rating = {};
+        $scope.plan.rating.id = {iExist : true};
+        $scope.plan.rating.score = 3;
+        $scope.plan.rating.num = 1;
+        planFactory.createPlan ($scope.plan)
+          .success (function (plan) {
+            console.log ('Plan created' , plan);
+            $state.go ('space');
+          })
+          .error (function (err) {
+            console.log ('Something went wrong. Error: ' + err);
+          });
+
     };
 
   }]);
