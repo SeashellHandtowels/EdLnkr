@@ -8,7 +8,6 @@ angular.module('edLnkrApp')
     planFactory.getPlan($stateParams.id)
     .success(function(plan) {
       $scope.plan = plan;
-
     })
     .error(function(err) {
       console.log('Something went wrong. Error: ' + err);

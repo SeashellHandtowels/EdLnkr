@@ -13,10 +13,16 @@
     padding: 0.2em 0;
 }
 
+.uiviewport{
+  height:65vh;
+  overflow:hidden;
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
+@import 'footer/footer.scss';
 @import 'main/main.scss';
 @import 'plan/plan.scss';
 @import 'space/space.scss';

@@ -31,7 +31,6 @@ angular.module('edLnkrApp')
       $scope.overStar = value;
     };
 
-
     planFactory.getPlans()
     .success(function(plans) {
         //intercept plans

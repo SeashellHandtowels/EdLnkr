@@ -20,8 +20,7 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
-      <!-- <link rel="stylesheet" href="app/footer/footer.css">
-      <link rel="stylesheet" href="components/footer/footer.css"> -->
+      <link rel="stylesheet" href="app/app.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -32,7 +31,9 @@
     <div ng-include="'components/navbar/navbar.html'"></div>
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div ui-view="" class="uiviewport"></div>
+
+    <div ng-include="'app/footer/footer.html'"></div>
 
     <!-- //<div ng-include="'components/footer/footer.html'"></div> -->
 
@@ -75,6 +76,8 @@
           <script src="app/account/signup/signup.controller.js"></script>
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
+          <script src="app/footer/footer.controller.js"></script>
+          <script src="app/footer/footer.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/plan/plan.controller.js"></script>
