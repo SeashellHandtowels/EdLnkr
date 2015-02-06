@@ -31,6 +31,10 @@ var PlanSchema = new Schema({
   category: {
     type: String
   },
+  views:{
+    id: {},
+    count: 0
+  },
 
   links: [ {url: String, description: String} ]
 

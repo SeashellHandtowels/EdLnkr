@@ -14,7 +14,7 @@ User.find({}).remove(function() {
     name: 'Test User',
     email: 'test@test.com',
     password: 'test'
-  }, 
+  },
   {
     provider: 'local',
     role: 'admin',
@@ -35,11 +35,15 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 2,
+            score: 4,
             num: 1
           },
-          category: 'Math'
-        }, 
+          category: 'Math',
+          views: {
+            id: userID,
+            count: 2
+          }
+        },
         {
           date: new Date(),
           title: 'Learn To Fly',
@@ -50,7 +54,11 @@ User.find({}).remove(function() {
             score: 5,
             num: 1
           },
-          category: 'other'
+          category: 'other',
+          views: {
+            id: userID,
+            count: 6
+          }
         },
         {
           date: new Date(),
@@ -59,10 +67,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3,
             num: 1
           },
-          category: 'The Universe'
+          category: 'The Universe',
+          views: {
+            id: userID,
+            count: 1
+          }
         },
         {
           date: new Date(),
@@ -71,10 +83,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3.5,
             num: 1
           },
-          category: 'Food'
+          category: 'Food',
+          views: {
+            id: userID,
+            count: 20
+          }
         },
         {
           date: new Date(),
@@ -83,10 +99,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 2.76,
             num: 1
           },
-          category: 'Languages'
+          category: 'Languages',
+          views: {
+            id: userID,
+            count: 7
+          }
         },
         {
           date: new Date(),
@@ -95,10 +115,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 3,
+            score: 4.75,
             num: 1
           },
-          category: 'Music'
+          category: 'Music',
+          views: {
+            id: userID,
+            count: 12
+          }
         },
         {
           date: new Date(),
@@ -107,10 +131,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3.56,
             num: 1
           },
-          category: 'Math'
+          category: 'Math',
+          views: {
+            id: userID,
+            count: 6
+          }
         },
         {
           date: new Date(),
@@ -119,10 +147,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3.65,
             num: 1
           },
-          category: 'Food'
+          category: 'Food',
+          views: {
+            id: userID,
+            count: 1
+          }
         },
         {
           date: new Date(),
@@ -131,10 +163,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 1,
+            score: 3.65,
             num: 1
           },
-          category: 'The Universe'
+          category: 'The Universe',
+          views: {
+            id: userID,
+            count: 9
+          }
         },
         {
           date: new Date(),
@@ -143,10 +179,14 @@ User.find({}).remove(function() {
           user: user._id,
           rating: {
             id: userID,
-            score: 4,
+            score: 4.76,
             num: 1
           },
-          category: 'life'
+          category: 'life',
+          views: {
+            id: userID,
+            count: 8
+          }
         }
       );
 
@@ -157,7 +197,7 @@ User.find({}).remove(function() {
           }
         );
       });
-    
+
     }
   );
 });

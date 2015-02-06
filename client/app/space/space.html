@@ -47,7 +47,7 @@
 
       <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan">
         <a ng-href="/plan/{{plan._id}}">
-          <span>{{plan.title}}</span>
+          <span ng-click="incrementCount(plan)">{{plan.title}}</span>
 
         </a>
          <span>{{plan.category}}</span>
