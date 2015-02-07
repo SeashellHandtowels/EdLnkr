@@ -1,15 +1,15 @@
+<div class="banner">
+  <h3>Desolate Bastion</h3>
+  <p>The best curation of information, by the people for the people. </p>
+</div>
 <div class="container">
   <div class="col-md-12">
 
-    <div class="landing-page" ng-hide="isLoggedIn() || closedLanding">
-      <div class="banner">
-        <h3>Desolate Bastion</h3>
-        <p class="lead">The best curation of information, by the people for the people. </p>
-      </div>
+    <div class="landing-page" ng-hide="isLoggedIn() || closedLanding()">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-          <h2>Put together lesson plans <br> using free resources from the internet</h2>
-          <h3>We are a community driven site, to help us find the best resources to further our education</h3>
+          <h2>Put Together Lesson Plans <br> Using the Power of the Intranets</h2>
+          <h3>A community driven site that finds and saves <br> the best resources to further your education</h3>
         </div>
       </div>
 
@@ -17,15 +17,15 @@
         <button class="col-md-6 col-md-offset-3" id="tryit" ng-click="hideLandingPage()">Try out Desolate Bastion</button>
       </div>
 
-      <div class="row">
+      <div class="row" id="front-featured">
         <div class="col-sm-3">
           <text>"I love being able to learn how to Krochet!" - Grandma</text>
         </div>
         <div class="col-sm-3">
-          <text>"Ed.Lnkr taught me how to play basketball" - Michael Jordan</text>
+          <text>"Desolate Bastion taught me how to play basketball" - Michael Jordan</text>
         </div>
         <div class="col-sm-3">
-          <text>"My life has changed after using Ed.Lnkr!" - anonymous</text>
+          <text>"My life has changed after using Desolate Bastion!" - anonymous</text>
         </div>
         <div class="col-sm-3">
           <text>"I can cook now!" - College Student</text>
@@ -34,7 +34,7 @@
     </div>
 
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-    <div ng-show="isLoggedIn() || closedLanding">
+    <div ng-show="isLoggedIn() || closedLanding()">
       <form class="form-search">
         <input type="search" ng-model="search" class="form-control input-medium search-query" placeholder="Search Bar">
       </form>
@@ -75,7 +75,7 @@
           <button class="btn btn-info" ng-show="isLoggedIn()">Create a new plan!</button>
         </a>
         <div class="plans-container">
-          <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan">
+          <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan fx-fade-right fx-easing-bounce fx-speed-1000">
             <a ng-href="/plan/{{plan._id}}">
               <span>{{plan.title}}</span>
 

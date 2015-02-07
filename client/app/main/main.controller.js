@@ -1,14 +1,17 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('MainCtrl', ['$scope', '$state', 'planFactory','Auth', 'alertFade',
-    function ($scope, $state, planFactory, Auth, alertFade) {
+  .controller('MainCtrl', ['$scope', '$state', 'planFactory','Auth', 'alertFade','$rootScope',
+    function ($scope, $state, planFactory, Auth, alertFade, $rootScope) {
 
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.getCurrentUser = Auth.getCurrentUser();
     $scope.plans = [];
     $scope.max = 5;
-    $scope.closedLanding = false;
+    $scope.closedLanding = function(){
+      $rootScope.closedLanding =  $rootScope.closedLanding || false;
+      return $rootScope.closedLanding;
+    };
 
     $scope.greaterThan = function(value){
       return function(plan){
@@ -87,7 +90,7 @@ angular.module('edLnkrApp')
     };
 
     $scope.hideLandingPage = function() {
-      $scope.closedLanding = true;
+      $rootScope.closedLanding = true;
     }
-    
+
     }]);
