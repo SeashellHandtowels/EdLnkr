@@ -8,6 +8,17 @@ angular.module('edLnkrApp')
     $scope.getCurrentUser = Auth.getCurrentUser();
     $scope.plans = [];
     $scope.max = 5;
+
+    $scope.incrementCount = function(plan){
+      if(Auth.isLoggedIn()){
+        if (!plan.views.id[$scope.getCurrentUser._id]) {
+          plan.views.id[$scope.getCurrentUser._id] = true;
+          plan.views.count += 1;
+          planFactory.updatePlan(plan);
+        }
+      }
+    };
+
     $scope.closedLanding = function(){
       $rootScope.closedLanding =  $rootScope.closedLanding || false;
       return $rootScope.closedLanding;
