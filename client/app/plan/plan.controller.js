@@ -26,7 +26,7 @@ angular.module('edLnkrApp')
       planFactory.updatePlan($scope.plan)
       .success(function(plan) {
         console.log('Plan saved', plan);
-        $state.go('space');
+        $state.go('main');
       })
       .error(function(err) {
         console.log('Something went wrong. Error: ' + err);
@@ -37,7 +37,7 @@ angular.module('edLnkrApp')
         planFactory.deletePlan ($scope.plan._id)
           .success (function (plan) {
             console.log ('Plan deleted.' , plan);
-            $state.go ('space');
+            $state.go ('main');
           })
           .error (function (err) {
             console.log ('Something went wrong. Error: ' + err);
@@ -66,7 +66,7 @@ angular.module('edLnkrApp')
         planFactory.createPlan ($scope.plan)
           .success (function (plan) {
             console.log ('Plan created' , plan);
-            $state.go ('space');
+            $state.go ('main');
           })
           .error (function (err) {
             console.log ('Something went wrong. Error: ' + err);

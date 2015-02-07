@@ -13,8 +13,12 @@
     padding: 0.2em 0;
 }
 
+.navbar{
+  margin-bottom: 0;
+}
+
 .uiviewport{
-  height:65vh;
+//  height: 60vh;
   overflow:hidden;
 }
 
@@ -25,6 +29,5 @@
 @import 'footer/footer.scss';
 @import 'main/main.scss';
 @import 'plan/plan.scss';
-@import 'space/space.scss';
 @import 'modal/modal.scss';
 // endinjector
