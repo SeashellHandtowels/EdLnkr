@@ -20,6 +20,7 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
+      <link rel="stylesheet" href="app/app.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -27,9 +28,14 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div ng-include="'components/navbar/navbar.html'"></div>
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div ui-view="" class="uiviewport"></div>
+
+    <div ng-include="'app/footer/footer.html'"></div>
+
+    <!-- //<div ng-include="'components/footer/footer.html'"></div> -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -57,6 +63,7 @@
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/ngFx/dist/ngFx.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -70,10 +77,13 @@
           <script src="app/account/signup/signup.controller.js"></script>
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
+          <script src="app/footer/footer.controller.js"></script>
+          <script src="app/footer/footer.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/plan/plan.controller.js"></script>
           <script src="app/plan/plan.js"></script>
+          <script src="app/services/alerts/alertFade.js"></script>
           <script src="app/services/plan/planFactory.service.js"></script>
           <script src="app/space/space.controller.js"></script>
           <script src="app/space/space.js"></script>

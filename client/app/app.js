@@ -6,7 +6,8 @@ angular.module('edLnkrApp', [
   'ngSanitize',
   'ui.router',
   'config',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngFx'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
@@ -49,6 +50,7 @@ angular.module('edLnkrApp', [
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
         }
-      });
+     });
     });
   });
+

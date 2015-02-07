@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('edLnkrApp')
-  .controller('PlanCtrl', ['$scope', 'planFactory', '$state', '$stateParams', 
+  .controller('PlanCtrl', ['$scope', 'planFactory', '$state', '$stateParams',
     function ($scope, planFactory, $state, $stateParams) {
+
 
     planFactory.getPlan($stateParams.id)
     .success(function(plan) {
@@ -13,6 +14,7 @@ angular.module('edLnkrApp')
     });
 
     $scope.addLink = function() {
+
       $scope.plan.links.push({index: '', url: '', description: ''});
     };
 
@@ -24,7 +26,7 @@ angular.module('edLnkrApp')
       planFactory.updatePlan($scope.plan)
       .success(function(plan) {
         console.log('Plan saved', plan);
-        $state.go('space');
+        $state.go('main');
       })
       .error(function(err) {
         console.log('Something went wrong. Error: ' + err);
@@ -32,18 +34,18 @@ angular.module('edLnkrApp')
     };
 
     $scope.deletePlan = function() {
-      planFactory.deletePlan($scope.plan._id)
-      .success(function(plan) {
-        console.log('Plan deleted.', plan);
-        $state.go('space');
-      })
-      .error(function(err) {
-        console.log('Something went wrong. Error: ' + err);
-      });
+        planFactory.deletePlan ($scope.plan._id)
+          .success (function (plan) {
+            console.log ('Plan deleted.' , plan);
+            $state.go ('main');
+          })
+          .error (function (err) {
+            console.log ('Something went wrong. Error: ' + err);
+          });
     };
 
   }])
-  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state', 
+  .controller('PlanCreateCtrl', ['$scope', 'planFactory', '$state',
     function ($scope, planFactory, $state) {
     $scope.plan = {};
     $scope.plan.links = [];
@@ -57,14 +59,19 @@ angular.module('edLnkrApp')
     };
 
     $scope.addPlan = function() {
-      planFactory.createPlan($scope.plan)
-      .success(function(plan) {
-        console.log('Plan created', plan);
-        $state.go('space');
-      })
-      .error(function(err) {
-        console.log('Something went wrong. Error: ' + err);
-      });
+        $scope.plan.rating = {};
+        $scope.plan.rating.id = {iExist : true};
+        $scope.plan.rating.score = 3;
+        $scope.plan.rating.num = 1;
+        planFactory.createPlan ($scope.plan)
+          .success (function (plan) {
+            console.log ('Plan created' , plan);
+            $state.go ('main');
+          })
+          .error (function (err) {
+            console.log ('Something went wrong. Error: ' + err);
+          });
+
     };
 
   }]);

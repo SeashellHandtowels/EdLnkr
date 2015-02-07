@@ -1,41 +1,82 @@
-.thing-form {
-    margin: 20px 0;
+.form_group  {
+  margin: 0 auto;
+  width: 600px;
 }
 
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
+.plan {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
 }
 
-#banner h1 {
+.edit-buttons {
+  float: right;
+  margin-top: -1px;
+  margin-right: 5px;
+  color: #39b0cd;
+  font-size: 125%;
+}
+
+.links {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+  list-style-type: none;
+}
+
+.plans-container {
+  height: 60vh;
+  width:100%;
+  overflow-y:scroll;
+  margin-bottom: 30px;
+}
+
+.banner{
+  color: #F5F5F5;
+  width: 100%;
+  background-image: url('../../assets/images/texture.png');
+  text-align: center;
+  padding-bottom: .5em;
+  h3{
     font-size: 90px;
     line-height: 1;
     letter-spacing: -1px;
     font-family: 'Ubuntu', sans-serif;
-    margin: .5em 0;
+    margin: 0;
+  }
+  p{
+    font-size: 2em;
+    color: #00b3ee;
+  }
 }
 
-.hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #192f42;
+.landing-page{
+  width: 100%;
+  background:white;
+  height:60vh;
+  margin-bottom: 30px;
+  #tryit {
+    border-radius: 10px;
+    font-family: Arial;
+    color: #00b3ee;
+    font-size: 20px;
+    background: black;
+    text-decoration: none;
+    margin-top:1em;
+    margin-bottom:2em;
+  }
+
+  #tryit:hover {
+    background: #8f8f8f;
+    text-decoration: none;
+  }
 }
 
-.footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
-}
 
-.panel-thumbnail img {
-    margin: 0 auto;
-    padding: 5px;
-    height: 210px;
-}
-.panel-default {
-  box-shadow: 4px 4px 2px #888888;
-}
+
