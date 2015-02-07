@@ -1,6 +1,10 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 <div class="col-md-12" id="plan-page">
   <div class="flexy-flex">
+      <div>
+        <a ui-sref="main">
+          <button class="btn btn-info">Back to all plans</button>
+        </a>
+      </div>
     <div class="plan-head">
       <h1>Plan: {{plan.title}}</h1>
       <hr>
@@ -14,8 +18,10 @@
              </div>
              <div class="panel-body">
                 <div class="clearfix"></div>
-                
+
                 <a href="{{link.url}}">{{link.url}}</a>
+               <div>{{plan.rating}}</div>
+
                 <hr>
                 {{link.description}}
               </div>
@@ -24,7 +30,7 @@
 
           <!-- <a href="{{link.url}}">{{link.description || link.url}}</a> -->
         </li>
-      </ul>      
+      </ul>
     </div>
   </div>
 </div>
