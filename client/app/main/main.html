@@ -1,57 +1,100 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>EdLnkr</h1>
-    <p class="lead">Using the internet as a teaching tool</p>
-  </div>
-</header>
-
+<div class="banner">
+  <h3>EdLinkr</h3>
+  <p>The best curation of information, by the people for the people. </p>
+</div>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Featured Plans:</h1>
-  </div>
-  <div class="row">
-   <div class="col-sm-4 col-xs-6">
-      <div class="panel panel-default">
-        <a href="https://edlnkr.herokuapp.com/plan/54cbc8274a2c850c00932d3c">
-          <div class="panel-thumbnail"><img src="../assets/images/angularjs.png" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Learn AngularJS</p>
-          </div>
-        </a>
+  <div class="col-md-12">
+
+    <div class="landing-page" ng-hide="isLoggedIn() || closedLanding()">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <h2>Put Together Lesson Plans <br> Using the Power of the Intranets</h2>
+          <h3>A community driven site that finds and saves <br> the best resources to further your education</h3>
+        </div>
       </div>
-    </div><!--/col-->
-    
-    <div class="col-sm-4 col-xs-6">
-      <div class="panel panel-default">
-        <a href="https://edlnkr.herokuapp.com/plan/54cd2ac1e54ddf0c00d4c283">
-          <div class="panel-thumbnail"><img src="../assets/images/french.png" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Learn French</p>
-          </div>
-        </a>
+
+      <div class="row">
+        <button class="col-md-6 col-md-offset-3" id="tryit" ng-click="hideLandingPage()">Try out EdLinkr</button>
       </div>
-    </div><!--/col-->
-    
-    <div class="col-sm-4 col-xs-6">
-      <div class="panel panel-default">
-        <a href="https://edlnkr.herokuapp.com/plan/54cd2562e54ddf0c00d4c273">
-          <div class="panel-thumbnail"><img src="../assets/images/gardening.jpg" class="img-responsive"></div>
-          <div class="panel-body">
-            <p class="lead">Learn Gardening</p>
-          </div>
-        </a>
+
+      <div class="row" id="front-featured">
+        <div class="col-sm-3">
+          <text>"I love being able to learn how to Krochet!" - Grandma</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"EdLinkr taught me how to play basketball" - Michael Jordan</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"My life has changed after using EdLinkr!" - anonymous</text>
+        </div>
+        <div class="col-sm-3">
+          <text>"I can cook now!" - College Student</text>
+        </div>
       </div>
-    </div><!--/col-->
+    </div>
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div ng-show="isLoggedIn() || closedLanding()">
+      <form class="form-search">
+        <input type="search" ng-model="search" class="form-control input-medium search-query" placeholder="Search Bar">
+      </form>
+
+      <label class="formgroup">Category:
+        <select ng-model="category">
+          <option value="">All</option>
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="Music">Music</option>
+          <option value="Languages">Languages</option>
+          <option value="Food">Food</option>
+          <option value="DIY">DIY</option>
+          <option value="Skittles">Skittles</option>
+          <option value="Nature">Nature</option>
+          <option value="Funny">Funny</option>
+          <option value="Geography">Geography</option>
+          <option value="Life">Life</option>
+          <option value="The Universe">The Universe</option>
+          <option value="and Everything Else">and Everything Else</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+
+      <label class="formgroup">Category:
+
+        <select ng-model="starValue"><option value="">All Ratings</option>
+          <option value="4">4 Star and above</option>
+          <option value="3">3 Star</option>
+          <option value="2">2 Star</option>
+          <option value="1">1 Star</option>
+
+        </select>
+      </label>
+
+      <ul class="plans">
+        <a ui-sref="newPlan">
+          <button class="btn btn-info" ng-show="isLoggedIn()">Create a new plan!</button>
+        </a>
+        <div class="plans-container">
+          <li ng-repeat="plan in plans | filter:search | filter:category | filter:greaterThan(starValue)" class="plan fx-fade-right fx-easing-bounce fx-speed-1000">
+            <a ng-href="/plan/{{plan._id}}">
+              <span>{{plan.title}}</span>
+
+            </a>
+            <span>{{plan.category}}</span>
+            <div class="edit-buttons">
+
+              <span > {{ ((plan.rating.score / plan.rating.num).toFixed(2)) }} Average star rating</span>
+              <rating ng-model="plan.rating.avg" max="max" ng-click="addRating(plan, plan.rating.avg)" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+              <a class="glyphicon glyphicon-edit" ng-href="/plan/edit/{{plan._id}}"></a>
+              <a class="glyphicon glyphicon-trash" ng-click="deletePlan(plan)"></a>
+            </div>
+            <br/>
+            <span>{{plan.synopsis}}</span>
+          </li>
+        </div>
+
+      </ul>
+    </div>
+
   </div>
 </div>
-
-<footer class="footer">
-  <div class="container">
-        <a href="https://github.com/SeashellHandtowels/EdLnkr">© 2015 Seashell Handtowels</a> |
-         <a href="https://github.com/SeashellHandtowels/EdLnkr/issues">Issues</a> |
-         <a href="https://github.com/SeashellHandtowels/EdLnkrExt">Chrome Extension</a>
-  </div>
-</footer>

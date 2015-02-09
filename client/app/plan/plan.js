@@ -13,7 +13,7 @@ angular.module('edLnkrApp')
         url: '/plan/:id',
         templateUrl: 'app/plan/show.html',
         controller: 'PlanCtrl',
-        authenticate: true
+        authenticate: false
       })
       .state('editPlan', {
         url: '/plan/edit/:id',
@@ -22,4 +22,3 @@ angular.module('edLnkrApp')
         authenticate: true
       });
   });
-  

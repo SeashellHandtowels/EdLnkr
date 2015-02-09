@@ -7,6 +7,6 @@ angular.module('edLnkrApp')
         url: '/space',
         templateUrl: 'app/space/space.html',
         controller: 'SpaceCtrl',
-        authenticate: true
+        authenticate: false
       });
   });
