@@ -335,7 +335,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'https://desolate-bastion-4104.herokuapp.com/api/'
+            apiEndpoint: 'https://EdLinker.herokuapp.com/api/'
           }
         }
       }
